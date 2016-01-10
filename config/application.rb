@@ -26,5 +26,17 @@ module Walter
     config.active_job.queue_adapter = :sidekiq
 
     config.action_mailer.default_url_options = { host: Rails.application.secrets.app_domain }
+
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+      allow do
+        origins '*'
+
+        resource '/f',
+          :headers => :any,
+          :methods => [:post],
+          :credentials => true,
+          :max_age => 0
+      end
+    end
   end
 end

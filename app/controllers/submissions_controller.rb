@@ -1,4 +1,6 @@
 class SubmissionsController < ActionController::Base
+  skip_before_filter :verify_authenticity_token
+  
   before_action :find_form, only: :create
 
   def create
