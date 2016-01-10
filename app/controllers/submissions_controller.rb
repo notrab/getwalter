@@ -1,6 +1,6 @@
 class SubmissionsController < ActionController::Base
   skip_before_filter :verify_authenticity_token
-  
+
   before_action :find_form, only: :create
 
   def create
@@ -12,17 +12,19 @@ class SubmissionsController < ActionController::Base
     ).to_json
 
     if @submission.save
+      @submission.form.optional_notification_emails.split(',').each do |recipient|
+        NewFormSubmissionMailer.new_submission(recipient, @submission).deliver
+      end
+
       render json: {
         status: 'ok',
         message: 'Saved!'
-      }
+      }, status: :ok
     else
       render json: {
         status: :error,
-        message: params.to_json,
         errors: @submission.errors.full_messages.to_sentence,
-        status: :bad_request
-      }
+      }, status: :bad_request
     end
   end
 
