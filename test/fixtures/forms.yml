@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  redirect_url: MyString
+  forward_query_string: false
+  token: MyString
+
+two:
+  name: MyString
+  redirect_url: MyString
+  forward_query_string: false
+  token: MyString

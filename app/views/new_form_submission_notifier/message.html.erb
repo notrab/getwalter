@@ -1,0 +1,11 @@
+<h1>New Submission</h1>
+
+<strong>Email:</strong><br>
+<%= @submission.email %><br><br>
+
+<% @submission.data.each do |key, value| %>
+  <strong><%= key %>:</strong><br>
+  <%= value %><br><br>
+<% end %>
+
+<p>This form was submitted by Walter. Your personal form assistant.</p>
