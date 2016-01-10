@@ -13,7 +13,7 @@ class SubmissionsController < ActionController::Base
 
     if @submission.save
       @submission.form.optional_notification_emails.split(',').each do |recipient|
-        NewFormSubmissionMailer.new_submission(recipient, @submission).deliver
+        NewFormSubmissionMailer.new_submission(recipient, @submission).deliver_later
       end
 
       render json: {
