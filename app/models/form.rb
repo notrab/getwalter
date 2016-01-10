@@ -1,4 +1,5 @@
 class Form < ActiveRecord::Base
+  belongs_to :user
   has_many :submissions
 
   has_secure_token
@@ -6,6 +7,10 @@ class Form < ActiveRecord::Base
   validates :name, presence: true
 
   before_validation :validate_optional_emails
+
+  def recipients
+    [optional_notification_emails, user.email]
+  end
 
   private
 

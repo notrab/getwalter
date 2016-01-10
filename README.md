@@ -1,6 +1,6 @@
 # Walter
 
-## Easy as 123
+### Easy as 123
 
 1. Create an account or login to Walter.
 2. Create a new form or obtain your token from an existing form.

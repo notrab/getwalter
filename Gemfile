@@ -56,3 +56,4 @@ gem 'sidekiq'
 gem 'sinatra', :require => nil
 gem 'has_secure_token'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'clearance'

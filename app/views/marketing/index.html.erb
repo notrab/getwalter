@@ -1,0 +1,14 @@
+<h1>I'm Walter, your personal form assistant.</h1>
+
+<p><%= link_to 'Sign up', sign_in_path %> or <%= link_to 'Sign in', sign_in_path %> today and start receiving form data.</p>
+
+<h3>Example:</h3>
+
+<pre>
+  &lt;form action=&quot;//getwalter.herokuapp.com/f/&lt;TOKEN HERE&gt;&quot; method=&quot;POST&quot; accept-charset=&quot;UTF-8&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Your Name&quot; autofocus=&quot;true&quot;&gt;
+    &lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Your Email&quot; required=&quot;true&quot;&gt;
+    &lt;textarea name=&quot;message&quot; placeholder=&quot;Write a message...&quot;&gt;&lt;/textarea&gt;
+    &lt;button type=&quot;submit&quot;&gt;Send Message&lt;/button&gt;
+  &lt;/form&gt;
+</pre>

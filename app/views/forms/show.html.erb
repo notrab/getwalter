@@ -1,0 +1,20 @@
+<h1><%= @form.name %></h1>
+<p><em>Emails are sent to <%= @form.recipients.to_sentence %>.</em></p>
+
+<h3>Submissions</h3>
+
+<ul>
+  <%= render @submissions %>
+</ul>
+
+<h4>Getting started with your form:</h4>
+
+<p>Copy/paste the following into your webpage:</p>
+<pre>
+  &lt;form action=&quot;//getwalter.herokuapp.com/f/<%= @form.token %>&quot; method=&quot;POST&quot; accept-charset=&quot;UTF-8&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Your Name&quot; autofocus=&quot;true&quot;&gt;
+    &lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Your Email&quot; required=&quot;true&quot;&gt;
+    &lt;textarea name=&quot;message&quot; placeholder=&quot;Write a message...&quot;&gt;&lt;/textarea&gt;
+    &lt;button type=&quot;submit&quot;&gt;Send Message&lt;/button&gt;
+  &lt;/form&gt;
+</pre>
