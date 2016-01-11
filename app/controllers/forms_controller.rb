@@ -7,6 +7,7 @@ class FormsController < ApplicationController
 
   def new
     @form = current_user.forms.new
+    Adapters::MixpanelAdapter.new.write(current_user.id, 'form.started')
   end
 
   def create
@@ -32,6 +33,7 @@ class FormsController < ApplicationController
 
   def destroy
     @form.destroy
+    Adapters::MixpanelAdapter.new.write(current_user.id, 'form.deleted')
     redirect_to root_path
   end
 
