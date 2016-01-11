@@ -1,9 +1,9 @@
-class MixpanelJob < ActiveJob::Base
+class MixpanelIncrementJob < ActiveJob::Base
   queue_as :default
 
-  def perform(distinct_id, event, attributes)
+  def perform(distinct_id, attributes)
     return unless Rails.application.secrets.mixpanel_token
     tracker = Mixpanel::Tracker.new(Rails.application.secrets.mixpanel_token)
-    tracker.track(distinct_id, event, attributes)
+    tracker.people.increment(distinct_id, attributes)
   end
 end

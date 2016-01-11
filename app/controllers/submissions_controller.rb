@@ -6,10 +6,12 @@ class SubmissionsController < ApplicationController
   def create
     @submission = @form.submissions.new
 
-    @submission.email = params[:email]
-    @submission.data = params.except(
-      :email, :token, :controller, :action
-    ).to_json
+    @forward_params = params.except(
+      :token, :controller, :action)
+
+    @submission.email = @forward_params[:email]
+    @submission.data = @forward_params.except(
+      :email, :token).to_json
 
     if @submission.save
       @submission.form.recipients.split(',').each do |recipient|
@@ -25,7 +27,7 @@ class SubmissionsController < ApplicationController
           message: 'Thanks. We have received your submission. Someone will be in touch shortly.'
         }, status: :ok
       else
-        redirect_to thanks_path
+        redirect_to thanks_path(@forward_params)
       end
     else
       if request.xhr?

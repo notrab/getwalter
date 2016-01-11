@@ -1,4 +1,4 @@
-<h1>New Form</h1>
+<h1>Editing <%= @form.name %></h1>
 
 <%= form_for(@form) do |f| %>
   <%= f.label :name %><br>
@@ -17,5 +17,8 @@
   <%= f.text_field :optional_notification_emails %>
   <br><br>
 
-  <%= f.submit "Add Form" %>
+  <%= f.submit "Update Form", class: 'btn' %>
 <% end %>
+
+<br>
+<%= link_to 'Delete Form', @form, method: :delete, data: {confirm: 'There is no going back. This deletes all submissions for this form too.'}, class: 'btn' %>
