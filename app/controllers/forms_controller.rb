@@ -2,7 +2,7 @@ class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   def show
-    @submissions = @form.submissions
+    @submissions = @form.submissions.includes(:submissions)
   end
 
   def new
@@ -13,7 +13,8 @@ class FormsController < ApplicationController
     @form = current_user.forms.new(safe_params)
 
     if @form.save
-      Librato.increment 'user.forms', source: current_user.id
+      Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
+
       redirect_to @form
     else
       render :new, notice: "Something went wrong."
