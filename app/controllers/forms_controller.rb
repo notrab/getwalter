@@ -13,6 +13,7 @@ class FormsController < ApplicationController
     @form = current_user.forms.new(safe_params)
 
     if @form.save
+      Librato.increment 'user.forms', source: current_user.id
       redirect_to @form
     else
       render :new, notice: "Something went wrong."
