@@ -15,7 +15,8 @@ class FormsController < ApplicationController
 
     if @form.save
       Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
-      Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created')
+      Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created', {
+        'Form Name' => @form.name})
 
       redirect_to @form
     else
@@ -32,8 +33,10 @@ class FormsController < ApplicationController
   end
 
   def destroy
+    form_name = @form.name
     @form.destroy
-    Adapters::MixpanelAdapter.new.write(current_user.id, 'form.deleted')
+    Adapters::MixpanelAdapter.new.write(current_user.id, 'form.deleted', {
+      'Form Name' => form_name})
     redirect_to root_path
   end
 
