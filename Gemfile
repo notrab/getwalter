@@ -51,6 +51,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'librato-rails'
 end
 
 gem 'foreman'
