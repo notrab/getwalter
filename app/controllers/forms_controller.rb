@@ -29,6 +29,12 @@ class FormsController < ApplicationController
     end
   end
 
+  def destroy
+    if @form.destroy
+      redirect_to root_path
+    end
+  end
+
   private
 
   def safe_params

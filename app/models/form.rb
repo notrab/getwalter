@@ -1,6 +1,6 @@
 class Form < ActiveRecord::Base
   belongs_to :user
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
 
   has_secure_token
 

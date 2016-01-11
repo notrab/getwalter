@@ -18,3 +18,5 @@
     &lt;button type=&quot;submit&quot;&gt;Send Message&lt;/button&gt;
   &lt;/form&gt;
 </pre>
+
+<%= link_to 'Delete Form', @form, method: :delete, data: {confirm: 'There is no going back. This deletes all submissions for this form too.'}, class: 'btn' %>
