@@ -2,7 +2,7 @@ class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   def show
-    @submissions = @form.submissions.includes(:submissions)
+    @submissions = @form.submissions
   end
 
   def new
@@ -30,9 +30,8 @@ class FormsController < ApplicationController
   end
 
   def destroy
-    if @form.destroy
-      redirect_to root_path
-    end
+    @form.destroy
+    redirect_to root_path
   end
 
   private
