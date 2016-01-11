@@ -14,6 +14,7 @@ class FormsController < ApplicationController
 
     if @form.save
       Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
+      Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created')
 
       redirect_to @form
     else
