@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   post 'f/:token' => 'submissions#create'
 
+  get '/thanks' => 'submissions#thanks', as: :thanks
+  get '/oops' => 'submissions#oops', as: :oops
+
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'dashboards#show', as: :signed_in_root
 
