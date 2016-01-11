@@ -8,18 +8,7 @@
 </head>
 <body>
 
-  <header>
-    <div class="wrapper">
-      <h1 class="logo">
-        <a href="/">Walter</a>
-      </h1>
-      <% if signed_in? %>
-        <%= link_to 'Sign out', sign_out_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign in', sign_in_path %>
-      <% end %>
-    </div>
-  </header>
+  <%= render partial: 'layouts/header' %>
 
   <main>
     <div class="wrapper">
@@ -31,7 +20,7 @@
 
       <%= yield %>
     </div>
-  
+
   </main>
 
 </body>

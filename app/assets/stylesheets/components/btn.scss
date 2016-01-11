@@ -2,12 +2,17 @@
 input[type="submit"] {
   border: 0;
   font-size: 1.3rem;
-  color: white;
+  color: rgba(255,255,255,0.7);
   padding: 1.2rem 2rem;
-  background: #4F4789;
+  background: #E75D32;
   display: inline-block;
   border-radius: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   box-shadow: 0 1px 0px rgba(0,0,0,0.05), 0 1px 2px 1px rgba(0,0,0,0.05);
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(255,255,255);
+  }
 }

@@ -1,8 +1,8 @@
 header {
   padding: 1.5rem;
   margin-bottom: 2rem;
-  background: #eee;
-  
+  background: #E75D32;
+
   &:before,
   &:after {
       content: " "; /* 1 */
@@ -12,26 +12,31 @@ header {
   &:after {
       clear: both;
   }
-  
-  .logo { 
+
+  .logo {
     float: left;
     a {
       font-size: 2.4rem;
-      color: #333;
+      color: rgb(255,255,255);
       font-weight: 100;
     }
   }
-  
+
   .account {
     float: right;
   }
-  
+
   > .wrapper {
     > a {
       float: right;
       margin-top: 0.6rem;
       display: inline-block;
+      color: rgba(255,255,255,0.7);
+
+      &:hover {
+        color: rgb(255,255,255);
+      }
     }
   }
-  
+
 }
