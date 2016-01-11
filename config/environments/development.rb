@@ -42,4 +42,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+
+  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 end
