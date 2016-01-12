@@ -11,7 +11,7 @@
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
-        templateUrl: 'assets/app/components/dashboard/dashboard.html',
+        templateUrl: "<%= asset_path('app/components/dashboard/dashboard.html') %>",
         controller: 'DashboardController',
         controllerAs: 'dash',
         data: {
