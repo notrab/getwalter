@@ -11,7 +11,7 @@
     $stateProvider
       .state('form', {
         url: '/forms',
-        templateUrl: 'assets/app/components/form/list/list',
+        templateUrl: "<%= asset_path('app/components/form/list/list.html') %>",
         controller: 'ListFormController',
         controllerAs: 'list',
         data: {
@@ -21,7 +21,7 @@
 
       .state('form.new', {
         url: '/new',
-        templateUrl: 'assets/app/components/form/new/new',
+        templateUrl: "<%= asset_path('app/components/form/new/new.html') %>",
         controller: 'NewFormController',
         controllerAs: 'new',
         data: {
@@ -31,7 +31,7 @@
 
       .state('form.show', {
         url: '/:id',
-        templateUrl: 'assets/app/components/form/show/show',
+        templateUrl: "<%= asset_path('app/components/form/show/show.html') %>",
         controller: 'ShowFormController',
         controllerAs: 'form',
         data: {
