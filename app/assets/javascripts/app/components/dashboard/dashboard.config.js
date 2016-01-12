@@ -11,7 +11,7 @@
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
-        template: '{{dash.message}}',
+        templateUrl: 'assets/app/components/dashboard/dashboard',
         controller: 'DashboardController',
         controllerAs: 'dash',
         data: {

@@ -10,7 +10,7 @@
   function navbar () {
     return {
       restrict: 'AE',
-      template: '<header><div class="wrapper"><h1 class="logo"><a ui-sref="dashboard">Walter</a></h1></div></header>',
+      templateUrl: 'assets/app/components/navbar/navbar.html',
       controller: NavbarController
     }
   }

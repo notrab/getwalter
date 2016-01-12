@@ -6,8 +6,9 @@
     .config(ShellConfig)
   ;
 
-  ShellConfig.$inject = ['$urlRouterProvider'];
-  function ShellConfig ($urlRouterProvider) {
+  ShellConfig.$inject = ['$urlRouterProvider', 'cfpLoadingBarProvider'];
+  function ShellConfig ($urlRouterProvider, cfpLoadingBarProvider) {
     $urlRouterProvider.otherwise('dashboard');
+    cfpLoadingBarProvider.latencyThreshold = 500;
   }
 })();
