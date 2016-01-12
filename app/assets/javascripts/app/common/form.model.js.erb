@@ -8,7 +8,7 @@
 
   FormFactory.$inject = ['$resource'];
   function FormFactory($resource) {
-    var Form = $resource("<%= Rails.application.secrets.app_domain %>/api/forms/:id", {}, {
+    var Form = $resource("<%= Rails.application.secrets.app_domain %>api/forms/:id", {}, {
       'update': {
         method: 'PUT'
       }

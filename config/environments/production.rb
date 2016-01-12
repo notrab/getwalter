@@ -88,16 +88,4 @@ Rails.application.configure do
 }
 
   config.action_mailer.delivery_method = :smtp
-
-  config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
-    allow do
-      origins '*'
-
-      resource '/f',
-        :headers => :any,
-        :methods => [:post],
-        :credentials => true,
-        :max_age => 0
-    end
-  end
 end
