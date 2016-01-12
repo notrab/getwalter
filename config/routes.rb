@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/oops' => 'submissions#oops', as: :oops
 
   constraints Clearance::Constraints::SignedIn.new do
-    root to: 'dashboards#show', as: :signed_in_root
+    root to: 'application#angular', as: :signed_in_root
 
     resources :forms
   end
