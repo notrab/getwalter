@@ -20,6 +20,10 @@ class Api::FormsController < ApplicationController
 
     if @form.save
       Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
+      Adapters::MixpanelAdapter.new.people(current_user.id, {
+        'Created Form' => true,
+        'Created Form Date' => Time.now
+      })
       Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created', {
         'Form ID' => @form.id,
         'Form Name' => @form.name,
@@ -32,26 +36,46 @@ class Api::FormsController < ApplicationController
       }, status: :ok
     else
       render json: {
-        error: @submission.errors.full_messages.to_sentence
+        message: @form.errors.full_messages.to_sentence
       }, status: :bad_request
     end
   end
 
   def update
     if @form.update_attributes(safe_params)
-      redirect_to @form
+      Adapters::MixpanelAdapter.new.people(current_user.id, {
+        'Updated Form' => true,
+        'Updated Form Date' => Time.now
+      })
+
+      render json: {
+        message:
+      }, status: :ok
     else
+      render json: {
+        message: @form.errors.full_messages.to_sentence
+      }, status: :bad_request
       render 'edit', notice: 'Something went wrong.'
     end
   end
 
   def destroy
     form_id, form_name = @form.id, @form.name
-    @form.destroy
-    Adapters::MixpanelAdapter.new.write(current_user.id, 'form.deleted', {
-      'Form ID' => form_id,
-      'Form Name' => form_name})
-    redirect_to root_path
+
+    if @form.destroy
+      Adapters::MixpanelAdapter.new.write(current_user.id, 'form.deleted', {
+        'Form ID' => form_id,
+        'Form Name' => form_name
+      })
+
+      render json: {
+        message: "#{form_name} was successfully deleted. Form data and submissions are no longer available."
+      }, status: :ok
+    else
+      render json: {
+        message: @form.errors.full_messages.to_sentence
+      }, status: :bad_request
+    end
   end
 
   private
