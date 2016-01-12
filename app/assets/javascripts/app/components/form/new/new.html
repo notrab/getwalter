@@ -1,1 +1,32 @@
 <h1>New Form</h1>
+
+<ng-form name="newForm" novalidate>
+  <input type="text" name="name" placeholder="Name*" ng-model="new.formData.name" ng-maxlength="70" required />
+  <p ng-show="newForm.name.$invalid && !newForm.name.$pristine">Your form must have a name.</p>
+  <p ng-show="newForm.name.$error.maxlength">You must enter a shorter name.</p>
+
+  <button type="button" ng-click="new.customThanksPageRequired = !new.customThanksPageRequired" class="btn">Set custom thankyou page</button>
+
+  <div ng-show="new.customThanksPageRequired">
+    <input type="text" name="redirect_url" placeholder="Redirect URL" ng-model="new.formData.redirect_url" />
+    <label for="forward_query_string">
+      Forward form data as a query string?
+      <input type="checkbox" name="forward_query_string" ng-model="new.formData.forward_query_string" />
+    </label>
+  </div>
+
+  <button type="button" ng-click="new.showOptionalEmailForm = !new.showOptionalEmailForm" class="btn">Add Optional Recipients</button>
+
+  <div ng-show="new.showOptionalEmailForm">
+    <ul>
+      <li ng-repeat="email in new.optionalEmails">{{email}}</li>
+    </ul>
+
+    <ng-form name="newOptionalEmail">
+      <input type="text" ng-model="new.newOptionalEmail" placeholder="Optional email" />
+      <button type="submit" ng-click="new.addOptionalEmail(newOptionalEmail.$valid)" class="btn">Add</button>
+    </ng-form>
+  </div>
+
+  <button type="submit" ng-click="new.createForm(newForm.$valid)" ng-disabled="newForm.$invalid" class="btn">Create Form</button>
+</ng-form>
