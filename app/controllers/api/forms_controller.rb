@@ -44,8 +44,7 @@ class Api::FormsController < ApplicationController
   def update
     if @form.update_attributes(safe_params)
       Adapters::MixpanelAdapter.new.people(current_user.id, {
-        'Updated Form' => true,
-        'Updated Form Date' => "#{Time.now.to_s}"
+        'Updated Form' => true
       })
 
       render json: {
