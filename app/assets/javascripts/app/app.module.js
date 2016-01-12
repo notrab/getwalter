@@ -13,6 +13,7 @@
       'walterApp.dashboard',
       'walterApp.navbar',
 
+      'walterApp.form',
       'walterApp.form.new',
     ])
   ;

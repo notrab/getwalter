@@ -6,7 +6,8 @@
     .controller('NewFormController', NewFormController)
   ;
 
-  function NewFormController () {
+  NewFormController.$inject = ['Form', '$log'];
+  function NewFormController (Form, $log) {
     var vm = this;
     vm.formData = {};
 
@@ -21,7 +22,11 @@
 
     vm.createForm = function (isValid) {
       if (isValid) {
-        console.log(vm.formData);
+        Form.save(vm.formData, function () {
+          $state.go('dashboard', {}, { reload: true });
+        }, function () {
+          $log.error('Something went wrong.');
+        });
       }
     }
   }

@@ -3,3 +3,11 @@
 <p>Welcome. You can make and manage forms using this dashboard.</p>
 
 <a ui-sref="form" class="btn">Create New Form</a>
+
+<h3>Your Forms</h3>
+
+<ul>
+  <li ng-repeat="form in dash.forms">
+    {{form.name}}
+  </li>
+</ul>

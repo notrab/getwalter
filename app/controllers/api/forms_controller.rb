@@ -1,8 +1,13 @@
-class FormsController < ApplicationController
+class Api::FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
+  respond_to :json
+
+  def index
+    respond_with current_user.forms
+  end
 
   def show
-    @submissions = @form.submissions
+    respond_with @form
   end
 
   def new
@@ -21,9 +26,14 @@ class FormsController < ApplicationController
         'Forward Query String' => @form.forward_query_string
       })
 
-      redirect_to @form
+      render json: {
+        message: 'Form created successfully.',
+        form: @form
+      }, status: :ok
     else
-      render :new, notice: "Something went wrong."
+      render json: {
+        error: @submission.errors.full_messages.to_sentence
+      }, status: :bad_request
     end
   end
 

@@ -3,6 +3,7 @@
 
 //= require angular
 //= require angular-animate
+//= require angular-resource
 //= require angular-rails4-templates
 //= require ui-router
 //= require angular-loading-bar

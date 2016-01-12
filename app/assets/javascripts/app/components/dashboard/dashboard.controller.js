@@ -6,10 +6,13 @@
     .controller('DashboardController', DashboardController)
   ;
 
-  DashboardController.$inject = ['Event'];
-  function DashboardController (Event) {
+  DashboardController.$inject = ['Form'];
+  function DashboardController (Form) {
     var vm = this;
     vm.message = 'Hello Jamie';
-    vm.forms = Event
+
+    Form.query({}, function (forms) {
+      vm.forms = forms;
+    });
   }
 })();

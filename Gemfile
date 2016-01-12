@@ -36,6 +36,7 @@ gem 'has_secure_token'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'clearance'
 gem 'mixpanel-ruby'
+gem 'responders', '~> 2.0'
 
 gem 'angular-rails4-templates'
 

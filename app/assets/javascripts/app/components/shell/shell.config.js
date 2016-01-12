@@ -6,9 +6,9 @@
     .config(ShellConfig)
   ;
 
-  ShellConfig.$inject = ['$urlRouterProvider', 'cfpLoadingBarProvider'];
-  function ShellConfig ($urlRouterProvider, cfpLoadingBarProvider) {
+  ShellConfig.$inject = ['$urlRouterProvider', '$httpProvider'];
+  function ShellConfig ($urlRouterProvider, $httpProvider) {
     $urlRouterProvider.otherwise('dashboard');
-    cfpLoadingBarProvider.latencyThreshold = 500;
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
   }
 })();
