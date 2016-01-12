@@ -49,7 +49,7 @@ class Api::FormsController < ApplicationController
       })
 
       render json: {
-        message:
+        message: "#{@form.name} was successfully updated."
       }, status: :ok
     else
       render json: {
