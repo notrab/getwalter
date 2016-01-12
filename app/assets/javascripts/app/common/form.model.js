@@ -8,7 +8,7 @@
 
   FormFactory.$inject = ['$resource'];
   function FormFactory($resource) {
-    var Form = $resource('http://localhost:5000/api/forms/:id', {}, {
+    var Form = $resource('http://getwalter.herokuapp.com/api/forms/:id', {}, {
       'update': {
         method: 'PUT'
       }
