@@ -1,1 +1,11 @@
 <h1>{{ form.form.name }}</h1>
+
+<h3>Submissions</h3>
+
+<ul>
+  <li ng-repeat="submission in form.form.submissions">
+    <p>Email from: {{ submission.email }}</p>
+    <p>Sent: {{ submission.created_at | date: 'medium' }}<p>
+    <p>Data: {{ submission.data }}</p>
+  </li>
+</ul>
