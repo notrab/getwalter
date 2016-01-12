@@ -12,4 +12,11 @@ class User < ActiveRecord::Base
   def last_name
     name.split(' ').last
   end
+
+  def as_json
+    super(only: [
+      :name,
+      :email
+    ])
+  end
 end
