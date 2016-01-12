@@ -25,3 +25,11 @@
 //= require app/components/form/new/form.module
 //= require app/components/form/new/form.config
 //= require app/components/form/new/form.controller
+
+//= require app/components/form/list/list.module
+//= require app/components/form/list/list.config
+//= require app/components/form/list/list.controller
+
+//= require app/components/form/show/show.module
+//= require app/components/form/show/show.config
+//= require app/components/form/show/show.controller

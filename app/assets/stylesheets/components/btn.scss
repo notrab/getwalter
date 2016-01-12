@@ -15,4 +15,14 @@ input[type="submit"] {
   &:hover {
     color: rgb(255,255,255);
   }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    cursor-events: none;
+
+    &:hover {
+      color: rgba(255,255,255,0.7);
+    }
+  }
 }

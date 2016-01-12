@@ -11,8 +11,8 @@ class Api::FormsController < ApplicationController
   end
 
   def new
-    @form = current_user.forms.new
     Adapters::MixpanelAdapter.new.write(current_user.id, 'form.started')
+    respond_with current_user.forms.new
   end
 
   def create

@@ -2,12 +2,12 @@
 
 <p>Welcome. You can make and manage forms using this dashboard.</p>
 
-<a ui-sref="form" class="btn">Create New Form</a>
+<a ui-sref="form.new" class="btn">Create New Form</a>
 
 <h3>Your Forms</h3>
 
 <ul>
   <li ng-repeat="form in dash.forms">
-    {{form.name}}
+    <a ui-sref="form.show({id: form.id })">{{ form.name }}</a>
   </li>
 </ul>

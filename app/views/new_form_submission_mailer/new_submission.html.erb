@@ -3,11 +3,9 @@
 <strong>Email:</strong><br>
 <%= @submission.email %><br><br>
 
-<%= @submission.data.inspect %>
-
 <ul>
   <% JSON.parse(@submission.data).each do |key,val| %>
-    <li><strong><%= key %></strong>: <%= val %></li>
+    <li><strong><%= key.humanize %></strong>: <%= val.humanize %></li>
   <% end %>
 </ul>
 

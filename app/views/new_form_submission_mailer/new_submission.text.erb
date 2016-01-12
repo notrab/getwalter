@@ -3,6 +3,8 @@ New Submission
 Email:
 <%= @submission.email %>
 
-<%= @submission.data.inspect %>
+<% JSON.parse(@submission.data).each do |key,val| %>
+  <li><strong><%= key.humanize %></strong>: <%= val.humanize %></li>
+<% end %>
 
 This form was submitted by Walter. Your personal form assistant.

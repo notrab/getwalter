@@ -14,6 +14,8 @@
       'walterApp.navbar',
 
       'walterApp.form',
+      'walterApp.form.list',
+      'walterApp.form.show',
       'walterApp.form.new',
     ])
   ;

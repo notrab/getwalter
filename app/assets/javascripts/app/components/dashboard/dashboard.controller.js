@@ -9,7 +9,6 @@
   DashboardController.$inject = ['Form'];
   function DashboardController (Form) {
     var vm = this;
-    vm.message = 'Hello Jamie';
 
     Form.query({}, function (forms) {
       vm.forms = forms;
