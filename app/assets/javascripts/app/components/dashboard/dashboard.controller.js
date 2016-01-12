@@ -6,8 +6,10 @@
     .controller('DashboardController', DashboardController)
   ;
 
-  function DashboardController () {
+  DashboardController.$inject = ['Event'];
+  function DashboardController (Event) {
     var vm = this;
     vm.message = 'Hello Jamie';
+    vm.forms = Event
   }
 })();

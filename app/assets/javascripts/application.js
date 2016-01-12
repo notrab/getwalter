@@ -9,6 +9,8 @@
 
 //= require app/app.module
 
+//= require app/common/form.model
+
 //= require app/components/navbar/navbar.directive
 
 //= require app/components/shell/shell.module

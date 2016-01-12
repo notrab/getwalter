@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'application#angular', as: :signed_in_root
 
-    resources :forms
+    namespace :api, defaults: {format: :json} do
+      resources :forms
+    end
   end
 
   constraints Clearance::Constraints::SignedOut.new do

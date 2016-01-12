@@ -12,6 +12,10 @@ class Form < ActiveRecord::Base
     [optional_notification_emails, user.email]
   end
 
+  def as_json(options={})
+    super(options.merge(include: [:user, :submissions]))
+  end
+
   private
 
   def validate_optional_emails

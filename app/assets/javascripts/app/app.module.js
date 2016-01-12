@@ -2,6 +2,8 @@
   angular
     .module('walterApp', [
       'ngAnimate',
+      'ngResource',
+
       'ui.router',
       'templates',
 

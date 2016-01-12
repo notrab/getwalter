@@ -42,6 +42,7 @@ gem 'angular-rails4-templates'
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-animate'
+  gem 'rails-assets-angular-resource'
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-loading-bar'
 end
