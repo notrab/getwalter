@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'application#angular', as: :signed_in_root
 
+    get '/me' => 'users#me'
+
     namespace :api, defaults: {format: :json} do
       resources :forms
+      resources :users
     end
 
     get '/my_account' => 'users#edit', as: 'my_account'
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedOut.new do
     root to: 'marketing#index'
 
-    # get '/sign_up' => 'users#new', as: 'sign_up_app'
+    get '/sign_up' => 'users#new', as: 'sign_up_app'
     get '/sign_in' => 'sessions#new', as: 'sign_in_app'
   end
 

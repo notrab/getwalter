@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     name.split(' ').last
   end
 
-  def as_json
+  def as_json(options={})
     super(only: [
       :name,
       :email

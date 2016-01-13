@@ -1,6 +1,10 @@
 class UsersController < Clearance::UsersController
   before_action :require_login, only: [:edit, :update]
 
+  def show
+    render json: current_user.to_json
+  end
+
   def edit
   end
 

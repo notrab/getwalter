@@ -6,12 +6,16 @@
     .controller('ShellController', ShellController)
   ;
 
-  ShellController.$inject = ['$scope', '$location', '$state'];
-  function ShellController ($scope, $location, $state) {
+  ShellController.$inject = ['$scope', '$location', '$state', '$http'];
+  function ShellController ($scope, $location, $state, $http) {
     $scope.$on('$stateChangeSuccess', function (event, toState) {
       if (angular.isDefined(toState.data.pageTitle)) {
         $scope.pageTitle = toState.data.pageTitle;
       }
+
+      $http.get('/api/users/me', {}).then(function(user) {
+        $scope.currentUser = user.data;
+      });
     });
   }
 })();

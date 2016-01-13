@@ -1,0 +1,19 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('walterApp.user', [])
+    .factory('User', UserFactory)
+  ;
+
+  UserFactory.$inject = ['$resource'];
+  function UserFactory($resource) {
+    var User = $resource("/users/:id", {}, {
+      'update': {
+        method: 'PUT'
+      }
+    });
+
+    return User;
+  }
+})();

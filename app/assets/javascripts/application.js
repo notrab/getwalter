@@ -11,6 +11,7 @@
 //= require app/app.module
 
 //= require app/common/form.model
+//= require app/common/user.model
 
 //= require app/components/navbar/navbar.directive
 

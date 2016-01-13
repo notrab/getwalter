@@ -1,4 +1,4 @@
-<h1>Dashboard</h1>
+<h1 ng-bind-template="Welcome {{currentUser.name}}"></h1>
 
 <p>Welcome. You can make and manage forms using this dashboard.</p>
 
@@ -11,3 +11,4 @@
     <a ui-sref="form.show({id: form.id })">{{ form.name }}</a>
   </li>
 </ul>
+

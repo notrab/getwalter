@@ -13,6 +13,8 @@
       'walterApp.dashboard',
       'walterApp.navbar',
 
+      'walterApp.user',
+
       'walterApp.form',
       'walterApp.form.list',
       'walterApp.form.show',
