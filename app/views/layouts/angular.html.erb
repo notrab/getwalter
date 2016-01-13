@@ -4,6 +4,10 @@
   <title ng-bind="pageTitle">Walter</title>
   <meta charset="utf-8" />
   <%= stylesheet_link_tag 'application', media: 'all'%>
+  <% if Rails.env.production? %>
+    <script src="https://use.typekit.net/ujr4qeu.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <% end %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -44,7 +48,5 @@
     </div>
   </footer>
 
-  <script src="https://use.typekit.net/ujr4qeu.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 </body>
 </html>

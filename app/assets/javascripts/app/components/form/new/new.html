@@ -19,7 +19,10 @@
 
   <div ng-show="new.showOptionalEmailForm">
     <ul>
-      <li ng-repeat="email in new.optional_notification_emails">{{email}}</li>
+      <li ng-repeat="email in new.formData.optional_notification_emails">
+        {{email}}
+        <button ng-click="new.removeOptionalEmail(email)">Remove</button>
+      </li>
     </ul>
 
     <ng-form name="newOptionalEmail" novalidate>

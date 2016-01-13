@@ -17,7 +17,7 @@ class Api::FormsController < ApplicationController
 
   def create
     @form = current_user.forms.new(safe_params.except(:optional_notification_emails))
-    @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',')
+    @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',') if safe_params[:optional_notification_emails].present?
 
     if @form.save
       Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')

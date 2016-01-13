@@ -2,6 +2,11 @@
 
 <p>Your form action URL: http://getwalter.io/f/{{ form.form.token }}</p>
 
+<h2>Recipients</h2>
+<ul>
+  <li ng-repeat="email in form.form.optional_notification_emails">{{email}}</li>
+</ul>
+
 <h3>Submissions</h3>
 
 <ul>

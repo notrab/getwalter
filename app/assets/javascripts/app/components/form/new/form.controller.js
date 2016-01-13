@@ -21,6 +21,10 @@
         vm.newOptionalEmail = null;
       }
     }
+    vm.removeOptionalEmail = function (email) {
+      var index = vm.formData.optional_notification_emails.indexOf(email);
+      vm.formData.optional_notification_emails.splice(index, 1);
+    }
 
     vm.createForm = function (isValid) {
       if (isValid) {
