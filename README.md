@@ -7,7 +7,7 @@
 3. Enter your token into the form `action` attribute. E.g.
 
 ``` html
-<form action="//getwalter.herokuapp.com/f/<TOKEN HERE>" method="POST" accept-charset="utf-8">
+<form action="//getwalter.io/f/<TOKEN HERE>" method="POST" accept-charset="utf-8">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" placeholder="Your Name" class="form-control" autofocus="true">
