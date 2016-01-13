@@ -9,14 +9,15 @@
   NewFormController.$inject = ['Form', '$log', '$scope', '$state'];
   function NewFormController (Form, $log, $scope, $state) {
     var vm = this;
-    vm.formData = {};
+    vm.formData = {
+      optional_notification_emails: []
+    };
 
     // Create a directive for this
-    vm.optionalEmails = [];
     vm.newOptionalEmail = null;
     vm.addOptionalEmail = function (isValid) {
       if (isValid) {
-        vm.optionalEmails.push(vm.newOptionalEmail);
+        vm.formData.optional_notification_emails.push(vm.newOptionalEmail);
         vm.newOptionalEmail = null;
       }
     }

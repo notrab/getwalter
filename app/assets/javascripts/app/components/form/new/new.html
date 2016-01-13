@@ -19,12 +19,14 @@
 
   <div ng-show="new.showOptionalEmailForm">
     <ul>
-      <li ng-repeat="email in new.optionalEmails">{{email}}</li>
+      <li ng-repeat="email in new.optional_notification_emails">{{email}}</li>
     </ul>
 
-    <ng-form name="newOptionalEmail">
-      <input type="text" ng-model="new.newOptionalEmail" placeholder="Optional email" />
-      <button type="submit" ng-click="new.addOptionalEmail(newOptionalEmail.$valid)" class="btn">Add</button>
+    <ng-form name="newOptionalEmail" novalidate>
+      <input type="email" ng-model="new.newOptionalEmail" placeholder="Optional email" />
+      <button type="submit"
+        ng-click="new.addOptionalEmail(newOptionalEmail.$valid)"
+        ng-disabled="newOptionalEmail.$invalid" class="btn">Add</button>
     </ng-form>
   </div>
 

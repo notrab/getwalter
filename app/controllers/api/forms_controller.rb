@@ -16,7 +16,8 @@ class Api::FormsController < ApplicationController
   end
 
   def create
-    @form = current_user.forms.new(safe_params)
+    @form = current_user.forms.new(safe_params.except(:optional_notification_emails))
+    @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',')
 
     if @form.save
       Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
@@ -81,7 +82,7 @@ class Api::FormsController < ApplicationController
   def safe_params
     params.require(:form).permit(:name,
       :redirect_url, :forward_query_string,
-      :optional_notification_emails
+      :optional_notification_emails => []
     )
   end
 

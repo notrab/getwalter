@@ -4,14 +4,23 @@ class SubmissionsController < ApplicationController
   before_action :find_form, only: :create
 
   def create
-    @submission = @form.submissions.new
-
     @forward_params = params.except(
       :token, :controller, :action)
 
-    @submission.email = @forward_params[:email]
-    @submission.data = @forward_params.except(
-      :email, :token).to_json
+    # @submission.email = @forward_params[:email]
+    # @submission.data = @forward_params.except(
+    #   :email, :token).to_json
+
+    params = ActionController::Parameters.new({
+      submission: {
+        email: @forward_params[:email],
+        data: @forward_params.except(:email, :token).to_json
+      }
+    })
+
+    permitted = params.require(:submission).permit(:email, :data)
+
+    @submission = @form.submissions.new(permitted)
 
     if @submission.save
       @submission.form.recipients.split(',').each do |recipient|
