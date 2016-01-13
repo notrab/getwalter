@@ -10,12 +10,6 @@ class UsersController < Clearance::UsersController
 
   def update
     if current_user.update_attributes(user_params)
-      Adapters::MixpanelAdapter.new.people(current_user.id, {
-        '$first_name' => current_user.first_name,
-        '$last_name' => current_user.last_name,
-        '$email' => current_user.email
-      })
-
       redirect_to my_account_path
     else
       render action: :edit
@@ -31,10 +25,6 @@ class UsersController < Clearance::UsersController
       '$email' => @user.email
     })
     super
-  end
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password)
   end
 
   def user_from_params

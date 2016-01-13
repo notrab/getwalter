@@ -9,11 +9,13 @@ class Form < ActiveRecord::Base
   before_validation :validate_optional_emails
 
   def recipients
-    [optional_notification_emails, user.email]
+    recipients = [user.email]
+    recipients << optional_notification_emails
+    recipients
   end
 
   def as_json(options={})
-    super(options.merge(include: [:user, :submissions]))
+    super(options.merge(include: :submissions, exclude: :optional_notification_emails, methods: [:recipients]))
   end
 
   private

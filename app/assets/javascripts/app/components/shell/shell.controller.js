@@ -12,10 +12,10 @@
       if (angular.isDefined(toState.data.pageTitle)) {
         $scope.pageTitle = toState.data.pageTitle;
       }
+    });
 
-      $http.get('/api/users/me', {}).then(function(user) {
-        $scope.currentUser = user.data;
-      });
+    $http.get('/api/users/me', {}).then(function(user) {
+      $scope.currentUser = user.data;
     });
   }
 })();

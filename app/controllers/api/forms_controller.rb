@@ -42,7 +42,10 @@ class Api::FormsController < ApplicationController
   end
 
   def update
-    if @form.update_attributes(safe_params)
+    updated_params = safe_params.except(:optional_notification_emails)
+    @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',') if safe_params[:optional_notification_emails].present?
+
+    if @form.update_attributes(updated_params)
       Adapters::MixpanelAdapter.new.people(current_user.id, {
         'Updated Form' => true
       })
