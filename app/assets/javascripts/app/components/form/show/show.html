@@ -2,6 +2,9 @@
 
 <p>Your form action URL: http://getwalter.io/f/{{ form.form.token }}</p>
 
+<p ng-show="form.form.redirected">You have a custom thankyou page setup. You can
+visit this <a href="{{form.form.redirect_url}}">here</a>.</p>
+
 <h2>Recipients</h2>
 <ul>
   <li ng-repeat="email in form.form.recipients">{{email}}</li>

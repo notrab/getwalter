@@ -19,7 +19,10 @@
 
   <!-- <div ng-show="edit.showOptionalEmailForm"> -->
     <ul>
-      <li ng-repeat="email in edit.optionalEmails">{{email}}</li>
+      <li ng-repeat="email in edit.formData.recipients">
+        {{email}}
+        <button ng-click="edit.removeOptionalEmail(email)">Remove</button>
+      </li>
     </ul>
 
     <ng-form name="newOptionalEmail">
