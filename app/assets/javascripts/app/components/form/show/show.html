@@ -11,3 +11,18 @@
     <p>Data: {{ submission.data }}</p>
   </li>
 </ul>
+
+<hr>
+
+<p>Copy/paste the following into your webpage:</p>
+
+<pre>
+&lt;form action=&quot;//getwalter.herokuapp.com/f/{{ form.form.token }}&quot; method=&quot;POST&quot; accept-charset=&quot;UTF-8&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Your Name&quot; autofocus=&quot;true&quot;&gt;
+  &lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Your Email&quot; required=&quot;true&quot;&gt;
+  &lt;textarea name=&quot;message&quot; placeholder=&quot;Write a message...&quot;&gt;&lt;/textarea&gt;
+  &lt;button type=&quot;submit&quot;&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<a ui-sref="form.edit({id: form.form.id})" class="btn">Edit Form</a>

@@ -16,6 +16,7 @@
       'walterApp.form',
       'walterApp.form.list',
       'walterApp.form.show',
+      'walterApp.form.edit',
       'walterApp.form.new',
     ])
   ;

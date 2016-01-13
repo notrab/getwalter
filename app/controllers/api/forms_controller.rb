@@ -21,8 +21,7 @@ class Api::FormsController < ApplicationController
     if @form.save
       Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
       Adapters::MixpanelAdapter.new.people(current_user.id, {
-        'Created Form' => true,
-        'Created Form Date' => Time.now
+        'Created Form' => true
       })
       Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created', {
         'Form ID' => @form.id,

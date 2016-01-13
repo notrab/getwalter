@@ -35,6 +35,16 @@
         controller: 'ShowFormController',
         controllerAs: 'form',
         data: {
+          pageTitle: 'About your form'
+        }
+      })
+
+      .state('form.edit', {
+        url: '/:id/edit',
+        templateUrl: "<%= asset_path('app/components/form/edit/form.edit.html') %>",
+        controller: 'EditFormController',
+        controllerAs: 'edit',
+        data: {
           pageTitle: 'Editing form'
         }
       })

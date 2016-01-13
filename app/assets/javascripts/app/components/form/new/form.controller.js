@@ -6,11 +6,12 @@
     .controller('NewFormController', NewFormController)
   ;
 
-  NewFormController.$inject = ['Form', '$log', '$scope'];
-  function NewFormController (Form, $log, $scope) {
+  NewFormController.$inject = ['Form', '$log', '$scope', '$state'];
+  function NewFormController (Form, $log, $scope, $state) {
     var vm = this;
     vm.formData = {};
 
+    // Create a directive for this
     vm.optionalEmails = [];
     vm.newOptionalEmail = null;
     vm.addOptionalEmail = function (isValid) {
@@ -22,10 +23,11 @@
 
     vm.createForm = function (isValid) {
       if (isValid) {
-        Form.save(vm.formData, function () {
-          $state.go('dashboard', {}, { reload: true });
-        }, function () {
-          $log.error('Something went wrong.');
+        Form.save(vm.formData, function (data) {
+          $scope.newForm.$setPristine();
+          $state.go('form.show', {id: data.form.id}, {});
+        }, function (error) {
+          $log.error(error.message);
         });
       }
     }

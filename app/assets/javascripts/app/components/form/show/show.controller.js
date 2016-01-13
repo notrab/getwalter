@@ -11,8 +11,6 @@
     var vm = this;
     vm.form = {};
 
-    vm.message = "hello";
-
     Form.get({
       id: $stateParams.id
     }, function (data) {

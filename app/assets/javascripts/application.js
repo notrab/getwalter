@@ -33,3 +33,7 @@
 //= require app/components/form/show/show.module
 //= require app/components/form/show/show.config
 //= require app/components/form/show/show.controller
+
+//= require app/components/form/edit/form.edit.module
+//= require app/components/form/edit/form.edit.config
+//= require app/components/form/edit/form.edit.controller

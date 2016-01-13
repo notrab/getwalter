@@ -1,8 +1,0 @@
-<%= content_tag :li do %>
-  <h4><%= submission.email %> &dash; <small><%= time_ago_in_words submission.created_at %></small></h4>
-  <ul>
-    <% JSON.parse(submission.data).each do |key,val| %>
-      <li><strong><%= key %></strong>: <%= val %></li>
-    <% end %>
-  </ul>
-<% end %>
