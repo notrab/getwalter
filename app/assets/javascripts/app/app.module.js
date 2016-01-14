@@ -3,6 +3,7 @@
     .module('walterApp', [
       'ngAnimate',
       'ngResource',
+      'countTo',
 
       'ui.router',
       'templates',

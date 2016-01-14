@@ -1,13 +1,17 @@
 ul.form-list {
-  border-top: 1px solid #E9E9E9;
+  border-top: 1px solid rgba(0,0,0,0.1);
 
   li {
-    border-bottom: 1px solid #E9E9E9;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     padding: 1.2em 2.2em;
     @include outer-container;
 
+    &:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
     .overview {
-      @include span-columns(6);
+      @include span-columns(7);
 
       span.name {
         font-weight: 700;
@@ -23,17 +27,24 @@ ul.form-list {
     }
 
     .stats,
-    .settings {
+    .actions {
       text-align: center;
-      @include span-columns(3);
     }
 
     .stats {
-      @include outer-container;
+      @include span-columns(2);
+    }
+
+    .actions {
+      @include span-columns(2);
+      @include shift(1);
+    }
+
+    .stats {
 
       a {
         display: block;
-        @include span-columns(1.5 of 3);
+        @include span-columns(1 of 2);
 
         strong {
           color: #545454;
@@ -47,6 +58,34 @@ ul.form-list {
           text-transform: uppercase;
           font-weight: 600;
           font-size: 0.8em;
+        }
+      }
+    }
+
+    .actions {
+
+      span {
+        @include span-columns(1 of 2);
+
+        &.settings > a {
+          @include background-image(url('cog.svg'));
+        }
+
+        &.submissions > a {
+          @include background-image(url('move.svg'));
+        }
+
+        a {
+          @include hide-text;
+          display: block;
+          background-position: center center;
+          background-repeat: no-repeat;
+          opacity: 0.4;
+          height: 48px;
+
+          &:hover {
+            opacity: 1;
+          }
         }
       }
     }

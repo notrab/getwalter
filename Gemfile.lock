@@ -181,6 +181,7 @@ GEM
     rails-assets-angular (1.4.8)
     rails-assets-angular-animate (1.4.8)
       rails-assets-angular (= 1.4.8)
+    rails-assets-angular-filter-count-to (0.0.1)
     rails-assets-angular-loading-bar (0.8.0)
       rails-assets-angular (>= 1.2.9, < 2)
     rails-assets-angular-resource (1.4.8)
@@ -289,6 +290,7 @@ DEPENDENCIES
   rails (= 4.2.5)
   rails-assets-angular!
   rails-assets-angular-animate!
+  rails-assets-angular-filter-count-to!
   rails-assets-angular-loading-bar!
   rails-assets-angular-resource!
   rails-assets-ui-router!

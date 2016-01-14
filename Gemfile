@@ -49,4 +49,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-resource'
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-loading-bar'
+  gem 'rails-assets-angular-filter-count-to'
 end

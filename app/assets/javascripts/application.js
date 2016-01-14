@@ -7,6 +7,7 @@
 //= require angular-rails4-templates
 //= require ui-router
 //= require angular-loading-bar
+//= require angular-filter-count-to.min
 
 //= require app/app.module
 
