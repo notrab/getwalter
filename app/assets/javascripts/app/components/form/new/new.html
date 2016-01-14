@@ -1,7 +1,3 @@
-<header>
-  <h1 ng-bind-template="{{ new.formData.name || 'New Form' }}">New Form</h1>
-</header>
-
 <ng-form name="newForm" novalidate>
   <input type="text" name="name" placeholder="Name*" ng-model="new.formData.name" ng-maxlength="70" required />
   <p ng-show="newForm.name.$invalid && !newForm.name.$pristine">Your form must have a name.</p>

@@ -6,9 +6,9 @@
     .config(ShellConfig)
   ;
 
-  ShellConfig.$inject = ['$urlRouterProvider', '$httpProvider'];
-  function ShellConfig ($urlRouterProvider, $httpProvider) {
-    $urlRouterProvider.otherwise('dashboard');
+  ShellConfig.$inject = ['$urlRouterProvider', '$httpProvider', '$stateProvider'];
+  function ShellConfig ($urlRouterProvider, $httpProvider, $stateProvider) {
+    $urlRouterProvider.otherwise('/');
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
   }
 })();

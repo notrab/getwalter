@@ -1,5 +1,3 @@
-<h1>{{ form.form.name }}</h1>
-
 <p>Your form action URL: http://getwalter.io/f/{{ form.form.token }}</p>
 
 <p ng-show="form.form.redirected">You have a custom thankyou page setup. You can
@@ -33,4 +31,4 @@ visit this <a href="{{form.form.redirect_url}}">here</a>.</p>
 &lt;/form&gt;
 </pre>
 
-<a ui-sref="form.edit({id: form.form.id})" class="btn">Edit Form</a>
+<a ui-sref="forms.edit({id: form.form.id})" class="btn">Edit Form</a>

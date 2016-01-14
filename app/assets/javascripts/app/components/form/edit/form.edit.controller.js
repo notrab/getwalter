@@ -21,7 +21,7 @@
     vm.updateForm = function (isValid) {
       if (isValid) {
         Form.update({id: vm.formData.id}, vm.formData);
-        $state.go('form.show', {id: vm.formData.id}, {});
+        $state.go('forms.show', {id: vm.formData.id}, {});
 
         // Form.update(vm.formData, function (data) {
         //   $scope.newForm.$setPristine();

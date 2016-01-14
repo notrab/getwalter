@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get '/me' => 'users#me'
 
     namespace :api, defaults: {format: :json} do
-      resources :forms
-      resources :users
+      resources :forms, except: [:new, :edit]
+      resources :users, except: [:new, :edit]
     end
 
     get '/my_account' => 'users#edit', as: 'my_account'

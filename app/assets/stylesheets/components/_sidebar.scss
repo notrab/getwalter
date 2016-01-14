@@ -1,5 +1,5 @@
 nav.side-nav {
-  background-color: #373737;
+  background-color: #95a5a6;
   width: 300px;
   position: fixed;
   top: 0;
@@ -22,7 +22,7 @@ nav.side-nav {
         line-height: 4.2em;
         display: block;
         padding: 0 2em 0 4em;
-        color: #999999;
+        color: rgba(255,255,255,0.5);
         font-weight: 700;
 
         &::before {
@@ -34,7 +34,7 @@ nav.side-nav {
           width: 24px;
           height: 24px;
           @include background-image(asset-url('list.svg'));
-          opacity: 0.4;
+          opacity: 0.5;
           @include transition(all 0.15s ease-in);
         }
 

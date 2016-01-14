@@ -10,12 +10,24 @@
   function DashboardConfig ($stateProvider) {
     $stateProvider
       .state('dashboard', {
-        url: '/dashboard',
-        templateUrl: "<%= asset_path('app/components/dashboard/dashboard.html') %>",
-        controller: 'DashboardController',
-        controllerAs: 'dash',
+        url: '/',
         data: {
           pageTitle: 'Dashboard'
+        },
+        views: {
+          'navbar': {
+            template: '<navbar />'
+          },
+
+          'header': {
+            templateUrl: "<%= asset_path('app/components/form/list/header.html') %>"
+          },
+
+          'content': {
+            templateUrl: "<%= asset_path('app/components/form/list/list.html') %>",
+            controller: 'ListFormController',
+            controllerAs: 'list'
+          }
         }
       })
     ;

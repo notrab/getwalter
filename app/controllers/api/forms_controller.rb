@@ -10,11 +10,6 @@ class Api::FormsController < ApplicationController
     respond_with @form
   end
 
-  def new
-    Adapters::MixpanelAdapter.new.write(current_user.id, 'form.started')
-    respond_with current_user.forms.new
-  end
-
   def create
     @form = current_user.forms.new(safe_params.except(:optional_notification_emails))
     @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',') if safe_params[:optional_notification_emails].present?

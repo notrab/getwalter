@@ -9,9 +9,5 @@
   DashboardController.$inject = ['Form'];
   function DashboardController (Form) {
     var vm = this;
-
-    Form.query({}, function (forms) {
-      vm.forms = forms;
-    });
   }
 })();

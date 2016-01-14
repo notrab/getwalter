@@ -9,43 +9,62 @@
   ListFormConfig.$inject = ['$stateProvider'];
   function ListFormConfig ($stateProvider) {
     $stateProvider
-      .state('form', {
-        url: '/forms',
-        templateUrl: "<%= asset_path('app/components/form/list/list.html') %>",
-        controller: 'ListFormController',
-        controllerAs: 'list',
-        data: {
-          pageTitle: 'Your Forms'
-        }
+      .state('forms', {
+        abstract: true,
+        parent: 'dashboard',
+        url: '/forms'
       })
 
-      .state('form.new', {
+      .state('forms.new', {
         url: '/new',
-        templateUrl: "<%= asset_path('app/components/form/new/new.html') %>",
-        controller: 'NewFormController',
-        controllerAs: 'new',
         data: {
-          pageTitle: 'Get started creating a new form'
+          pageTitle: 'New Form'
+        },
+        views: {
+          'header@': {
+            templateUrl: "<%= asset_path('app/components/form/new/header.html') %>"
+          },
+
+          'content@': {
+            templateUrl: "<%= asset_path('app/components/form/new/new.html') %>",
+            controller: 'NewFormController',
+            controllerAs: 'new'
+          }
         }
       })
 
-      .state('form.show', {
-        url: '/:id',
-        templateUrl: "<%= asset_path('app/components/form/show/show.html') %>",
-        controller: 'ShowFormController',
-        controllerAs: 'form',
+      .state('forms.show', {
+        url: '/{id:int}',
         data: {
-          pageTitle: 'About your form'
+          pageTitle: 'Submissions & Settings'
+        },
+        views: {
+          'navbar': {
+            template: '<navbar />'
+          },
+          'header@': {
+            templateUrl: "<%= asset_path('app/components/form/show/header.html') %>"
+          },
+
+          'content@': {
+            templateUrl: "<%= asset_path('app/components/form/show/show.html') %>",
+            controller: 'ShowFormController',
+            controllerAs: 'form'
+          }
         }
       })
 
-      .state('form.edit', {
-        url: '/:id/edit',
-        templateUrl: "<%= asset_path('app/components/form/edit/form.edit.html') %>",
-        controller: 'EditFormController',
-        controllerAs: 'edit',
+      .state('forms.edit', {
+        url: '/{id:int}/edit',
         data: {
-          pageTitle: 'Editing form'
+          pageTitle: 'Editing Form'
+        },
+        views: {
+          'content@': {
+            templateUrl: "<%= asset_path('app/components/form/edit/form.edit.html') %>",
+            controller: 'EditFormController',
+            controllerAs: 'edit'
+          }
         }
       })
     ;
