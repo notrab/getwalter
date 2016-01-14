@@ -33,7 +33,7 @@ nav.side-nav {
           content: '';
           width: 24px;
           height: 24px;
-          @include background-image(url('list.svg'));
+          @include background-image(asset-url('list.svg'));
           opacity: 0.4;
           @include transition(all 0.15s ease-in);
         }

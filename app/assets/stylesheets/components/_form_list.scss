@@ -68,11 +68,11 @@ ul.form-list {
         @include span-columns(1 of 2);
 
         &.settings > a {
-          @include background-image(url('cog.svg'));
+          @include background-image(asset-url('cog.svg'));
         }
 
         &.submissions > a {
-          @include background-image(url('move.svg'));
+          @include background-image(asset-url('move.svg'));
         }
 
         a {
