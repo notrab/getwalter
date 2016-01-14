@@ -13,12 +13,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="main-wrapper">
-    <nav class="main">
-      <navbar></navbar>
-    </nav>
+  <nav class="side-nav">
+    <navbar />
+  </nav>
 
-    <main ui-view></main>
-  </div>
+  <main class="main-content" ui-view></main>
 </body>
 </html>

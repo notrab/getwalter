@@ -1,8 +1,54 @@
 ul.form-list {
+  border-top: 1px solid #E9E9E9;
+
   li {
     border-bottom: 1px solid #E9E9E9;
-    height: 80px;
-    line-height: 80px;
-    padding: 0 30px;
+    padding: 1.2em 2.2em;
+    @include outer-container;
+
+    .overview {
+      @include span-columns(6);
+
+      span.name {
+        font-weight: 700;
+        display: block;
+      }
+
+      span.last-submission {
+        color: #CCCCCC;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.8em;
+      }
+    }
+
+    .stats,
+    .settings {
+      text-align: center;
+      @include span-columns(3);
+    }
+
+    .stats {
+      @include outer-container;
+
+      a {
+        display: block;
+        @include span-columns(1.5 of 3);
+
+        strong {
+          color: #545454;
+          font-weight: 700;
+          font-size: 1em;
+          display: block;
+        }
+
+        span {
+          color: #CCCCCC;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 0.8em;
+        }
+      }
+    }
   }
 }

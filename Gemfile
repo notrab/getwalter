@@ -38,6 +38,9 @@ gem 'clearance'
 gem 'mixpanel-ruby'
 gem 'responders', '~> 2.0'
 
+gem 'bourbon';
+gem 'neat';
+
 gem 'angular-rails4-templates'
 
 source 'https://rails-assets.org' do

@@ -27,8 +27,8 @@ header {
   }
 }
 
-main {
+main.main-content {
   background-color: #fff;
-  width: 100%;
-  height: 100vh
+  width: calc(100% - 300px);
+  margin-left: 300px;
 }

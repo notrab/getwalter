@@ -3,11 +3,24 @@
   <a ui-sref="form.new" class="btn primary new-form">Create New Form</a>
 </header>
 
-<h1 ng-bind-template="Welcome {{currentUser.name}}"></h1>
-
 <ul class="form-list">
   <li ng-repeat="form in dash.forms">
-    <a ui-sref="form.show({id: form.id })">{{ form.name }}</a>
+    <div class="overview">
+      <span class="name"><a ui-sref="form.show({id: form.id })">{{ form.name
+          }}</a></span>
+      <span class="last-submission">Last submission 1 hour ago</span>
+    </div>
+    <div class="stats">
+      <a ui-sref="form.show({id: form.id})">
+        <strong>0</strong> <span>New</span>
+      </a>
+      <a ui-sref="form.show({id: form.id})">
+        <strong ng-bind="form.submissions.length"></strong> <span>Total</span>
+      </a>
+    </div>
+    <div class="settings">
+      Settings
+    </div>
   </li>
 </ul>
 
