@@ -1,12 +1,11 @@
+<header>
+  <h1 ng-bind="pageTitle">Walter</h1>
+  <a ui-sref="form.new" class="btn primary new-form">Create New Form</a>
+</header>
+
 <h1 ng-bind-template="Welcome {{currentUser.name}}"></h1>
 
-<p>Welcome. You can make and manage forms using this dashboard.</p>
-
-<a ui-sref="form.new" class="btn">Create New Form</a>
-
-<h3>Your Forms</h3>
-
-<ul>
+<ul class="form-list">
   <li ng-repeat="form in dash.forms">
     <a ui-sref="form.show({id: form.id })">{{ form.name }}</a>
   </li>

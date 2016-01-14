@@ -1,20 +1,21 @@
 html {
-    font-size: 62.5%;
-    box-sizing: border-box;
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-  background: #fff;
-  font: 1.6rem/1.5 'brandon grotesque', 'Helvetica', Arial, sans-serif;
-  font-weight: 100;
-  color: #444;
+  background: #F4F4F4;
+  font: 15px/1.5 'open sans', 'Helvetica', Arial, sans-serif;
+  color: #545454;
+  height: 100%;
+  width: 100%;
 }
 
 a {
-  color: rgba(192, 57, 43, 1.0);
+  color: #59B8D3;
   text-decoration: none;
 }
