@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="walterApp" ng-controller="ShellController">
 <head>
-  <title ng-bind="pageTitle">Walter</title>
+  <title ng-bind-template="{{pageTitle}} | Walter">Loading...</title>
   <meta charset="utf-8" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag 'application', media: 'all'%>

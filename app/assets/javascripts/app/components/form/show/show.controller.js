@@ -6,15 +6,9 @@
     .controller('ShowFormController', ShowFormController)
   ;
 
-  ShowFormController.$inject = ['Form', '$stateParams'];
-  function ShowFormController (Form, $stateParams) {
+  ShowFormController.$inject = ['formRes'];
+  function ShowFormController (formRes) {
     var vm = this;
-    vm.form = {};
-
-    Form.get({
-      id: $stateParams.id
-    }, function (data) {
-      vm.form = data;
-    });
+    vm.form = formRes;
   }
 })();

@@ -11,6 +11,9 @@
     $scope.$on('$stateChangeSuccess', function (event, toState) {
       if (angular.isDefined(toState.data.pageTitle)) {
         $scope.pageTitle = toState.data.pageTitle;
+        $scope.$watch($scope.pageTitle, function(newVal, oldVal) {
+          $scope.pageTitle = newVal;
+        });
       }
     });
 

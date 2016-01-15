@@ -35,9 +35,18 @@
 
       .state('forms.show', {
         url: '/{id:int}',
-        data: {
-          pageTitle: 'Submissions & Settings'
+        resolve: {
+          formRes: ['Form', '$stateParams', function(Form, $stateParams) {
+            return Form.get({
+              id: $stateParams.id
+            }).$promise.then(function(data) {
+              return data;
+            });
+          }]
         },
+        // data: {
+        //   pageTitle: this.resolve.formRes.name
+        // },
         views: {
           'navbar': {
             template: '<navbar />'
