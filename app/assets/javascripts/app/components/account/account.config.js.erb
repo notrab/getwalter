@@ -1,0 +1,35 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('walterApp.account')
+    .config(AccountConfig)
+  ;
+
+  AccountConfig.$inject = ['$stateProvider'];
+  function AccountConfig ($stateProvider) {
+    $stateProvider
+      .state('account', {
+        // abstract: true,
+        // parent: 'dashboard',
+        url: '/account',
+        data: {
+          pageTitle: 'Account Settings'
+        },
+        views: {
+          'navbar': {
+            template: '<navbar />'
+          },
+          'header': {
+            templateUrl: "<%= asset_path('app/components/account/header.html') %>"
+          },
+          'content': {
+            templateUrl: "<%= asset_path('app/components/account/account.html') %>",
+            controller: 'AccountController',
+            controllerAs: 'account'
+          }
+        }
+      })
+    ;
+  }
+})();
