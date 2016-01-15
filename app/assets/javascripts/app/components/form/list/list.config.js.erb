@@ -45,9 +45,6 @@
           }]
         },
         views: {
-          'navbar': {
-            template: '<navbar />'
-          },
           'header@': {
             templateUrl: "<%= asset_path('app/components/form/show/header.html') %>"
           },
@@ -62,8 +59,14 @@
 
       .state('forms.edit', {
         url: '/{id:int}/edit',
-        data: {
-          pageTitle: 'Editing Form'
+        resolve: {
+          formRes: ['Form', '$stateParams', function(Form, $stateParams) {
+            return Form.get({
+              id: $stateParams.id
+            }).$promise.then(function(data) {
+              return data;
+            });
+          }]
         },
         views: {
           'content@': {

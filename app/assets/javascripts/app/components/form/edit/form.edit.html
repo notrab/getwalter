@@ -1,5 +1,3 @@
-<h1>{{ edit.formData.name }}</h1>
-
 <ng-form name="updateForm" novalidate>
   <input type="text" name="name" placeholder="Name*" ng-model="edit.formData.name" ng-maxlength="70" required />
   <p ng-show="updateForm.name.$invalid && !updateForm.name.$pristine">Your form must have a name.</p>
