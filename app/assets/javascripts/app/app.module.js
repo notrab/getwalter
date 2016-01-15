@@ -12,6 +12,8 @@
 
       'walterApp.shell',
       'walterApp.dashboard',
+      'walterApp.account',
+
       'walterApp.navbar',
 
       'walterApp.user',

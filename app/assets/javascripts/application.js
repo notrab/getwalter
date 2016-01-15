@@ -24,6 +24,10 @@
 //= require app/components/dashboard/dashboard.config
 //= require app/components/dashboard/dashboard.controller
 
+//= require app/components/account/account.module
+//= require app/components/account/account.config
+//= require app/components/account/account.controller
+
 //= require app/components/form/new/form.module
 //= require app/components/form/new/form.config
 //= require app/components/form/new/form.controller

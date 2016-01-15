@@ -8,10 +8,11 @@ input[type="submit"] {
   padding: 1.2rem 2rem;
   background: #95a5a6;
   display: inline-block;
-  border-radius: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   cursor: pointer;
+  @include border-top-radius(0.5rem);
+  @include border-bottom-radius(0.5rem);
 
   &:hover {
     color: rgb(255,255,255);
@@ -31,5 +32,9 @@ input[type="submit"] {
 .btn.primary,
 button.primary {
   background: #62BE5B;
-  color: #fff;
+}
+
+.btn.danger,
+button.danger {
+  background: #e74c3c;
 }

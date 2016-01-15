@@ -30,7 +30,7 @@
       if (isValid) {
         Form.save(vm.formData, function (data) {
           $scope.newForm.$setPristine();
-          $state.go('form.show', {id: data.form.id}, {});
+          $state.go('forms.show', {id: data.form.id}, {});
         }, function (error) {
           $log.error(error.message);
         });
