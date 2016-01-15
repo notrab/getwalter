@@ -38,8 +38,8 @@ ng-form {
     text-align: center;
     text-transform: uppercase;
     font-weight: 100;
-    background: #95a5a6;
-    color: rgb(255, 255, 255);
+    background: #2980b9;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 2em;
     @include border-top-radius(0.5rem);
     @include border-bottom-radius(0.5rem);
@@ -47,6 +47,7 @@ ng-form {
     strong {
       display: block;
       font-weight: 700;
+      color: rgb(255, 255, 255);
     }
 
     &.inactive {
