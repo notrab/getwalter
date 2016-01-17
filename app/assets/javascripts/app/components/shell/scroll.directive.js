@@ -6,6 +6,7 @@
     .directive('scroll', scroll)
   ;
 
+  scroll.$inject = ['$window'];
   function scroll ($window) {
     return function(scope, element, attrs) {
       angular.element($window).bind("scroll", function() {
