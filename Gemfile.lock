@@ -159,6 +159,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-livereload (0.3.16)
@@ -285,6 +287,7 @@ DEPENDENCIES
   mixpanel-ruby
   neat
   pg (~> 0.15)
+  quiet_assets
   rack-cors
   rack-livereload
   rails (= 4.2.5)

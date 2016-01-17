@@ -12,15 +12,12 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'application#angular', as: :signed_in_root
 
-    get '/me' => 'users#me'
-
-    namespace :api, defaults: {format: :json} do
+    namespace :api, defaults: { format: :json } do
       resources :forms, except: [:new, :edit]
-      resources :users, except: [:new, :edit]
+      resources :users, except: [:new, :edit] do
+        get :me
+      end
     end
-
-    get '/my_account' => 'users#edit', as: 'my_account'
-    patch '/my_account' => 'users#update', as: 'edit_my_account'
   end
 
   constraints Clearance::Constraints::SignedOut.new do
@@ -33,14 +30,14 @@ Rails.application.routes.draw do
   resources :users, controller: 'clearance/users', only: [] do
     resource :password,
       controller: 'clearance/passwords',
-      only: [:create, :edit, :update]
+      only: [:create, :update]
   end
 
   resources :users, controller: "users" do
     resource(
       :password,
       controller: "passwords",
-      only: [:create, :edit, :update]
+      only: [:create, :update]
     )
   end
 end

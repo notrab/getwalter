@@ -19,6 +19,7 @@ class Api::FormsController < ApplicationController
       Adapters::MixpanelAdapter.new.people(current_user.id, {
         'Created Form' => true
       })
+
       Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created', {
         'Form ID' => @form.id,
         'Form Name' => @form.name,
@@ -26,7 +27,7 @@ class Api::FormsController < ApplicationController
       })
 
       render json: {
-        message: 'Form created successfully.',
+        message: t('.success'),
         form: @form
       }, status: :ok
     else
@@ -52,7 +53,7 @@ class Api::FormsController < ApplicationController
       render json: {
         message: @form.errors.full_messages.to_sentence
       }, status: :bad_request
-      render 'edit', notice: 'Something went wrong.'
+      render 'edit', notice: t('.error')
     end
   end
 
@@ -66,7 +67,7 @@ class Api::FormsController < ApplicationController
       })
 
       render json: {
-        message: "#{form_name} was successfully deleted. Form data and submissions are no longer available."
+        message: t('.success', form_name: form_name)
       }, status: :ok
     else
       render json: {

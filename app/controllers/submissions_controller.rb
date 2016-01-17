@@ -7,10 +7,6 @@ class SubmissionsController < ApplicationController
     @forward_params = params.except(
       :token, :controller, :action)
 
-    # @submission.email = @forward_params[:email]
-    # @submission.data = @forward_params.except(
-    #   :email, :token).to_json
-
     params = ActionController::Parameters.new({
       submission: {
         email: @forward_params[:email],
@@ -32,9 +28,7 @@ class SubmissionsController < ApplicationController
       end
 
       if request.xhr?
-        render json: {
-          message: 'Thanks. We have received your submission. Someone will be in touch shortly.'
-        }, status: :ok
+        render json: { message: t('.success') }, status: :ok
       else
         redirect_to thanks_path(@forward_params)
       end
