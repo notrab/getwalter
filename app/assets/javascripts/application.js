@@ -16,6 +16,12 @@
 //= require app/common/form.model
 //= require app/common/user.model
 
+//= require app/common/auth
+
+//= require app/components/auth/auth.config
+//= require app/components/auth/login.controller
+//= require app/components/auth/register.controller
+
 //= require app/components/navbar/navbar.directive
 
 //= require app/components/shell/shell.module

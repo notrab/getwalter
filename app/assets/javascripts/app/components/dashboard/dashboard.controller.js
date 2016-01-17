@@ -6,9 +6,8 @@
     .controller('DashboardController', DashboardController)
   ;
 
-  DashboardController.$inject = ['Form', 'resA'];
-  function DashboardController (Form, resA) {
+  DashboardController.$inject = ['Form'];
+  function DashboardController (Form) {
     var vm = this;
-    console.log(resA.value);
   }
 })();

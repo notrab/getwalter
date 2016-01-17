@@ -6,30 +6,31 @@
     .controller('ShellController', ShellController)
   ;
 
-  ShellController.$inject = ['$scope', '$rootScope', '$location', '$state', '$http'];
-  function ShellController ($scope, $rootScope, $location, $state, $http) {
+  ShellController.$inject = ['$scope', '$rootScope', '$location', '$state', '$http', 'Auth', 'CurrentUser'];
+  function ShellController ($scope, $rootScope, $location, $state, $http, Auth, CurrentUser) {
     $scope.currentUser = {};
 
     $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+      if (!Auth.authorize(toState.data.access)) {
+        event.preventDefault();
+        $state.go('guest.login');
+      }
+
       if (angular.isDefined(toState.data.pageTitle)) {
         $rootScope.pageTitle = toState.data.pageTitle;
       }
     });
 
-    $http.get('/api/me', {
-      ignoreLoadingBar: true
-    }).then(function(user) {
-      $scope.currentUser = user.data;
-    });
+    $rootScope.auth = Auth;
+    $rootScope.currentUser = CurrentUser.user();
 
-    $scope.logout = function () {
-      $scope.currentUser = null;
-      // $cookieStore.remove('loggedIn');
-      $state.go('/');
-    }
+    $rootScope.logout = function() {
+      Auth.logout();
+      $state.go('guest.home');
+    };
 
-    $scope.isLoggedIn = function () {
-      // return true;
-    }
+    $rootScope.isLoggedIn = function () {
+      return Auth.isAuthenticated();
+    };
   }
 })();

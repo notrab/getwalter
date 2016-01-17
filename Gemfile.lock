@@ -50,10 +50,6 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.1)
-    clearance (1.12.1)
-      bcrypt
-      email_validator (~> 1.4)
-      rails (>= 3.1)
     coderay (1.1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -69,8 +65,6 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    email_validator (1.6.0)
-      activemodel
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.6.0)
@@ -99,6 +93,7 @@ GEM
       multi_json (~> 1.8)
     has_secure_token (1.0.0)
       activerecord (>= 3.0)
+    hashie (3.4.3)
     hetchy (1.0.0)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
@@ -110,6 +105,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    jwt-rb (0.0.2)
+      hashie
     kgio (2.10.0)
     librato-metrics (1.6.0)
       aggregate (~> 0.2.2)
@@ -276,9 +273,9 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails4-templates
+  bcrypt
   bourbon
   byebug
-  clearance
   coffee-rails (~> 4.1.0)
   foreman
   guard
@@ -286,6 +283,7 @@ DEPENDENCIES
   has_secure_token
   jbuilder (~> 2.0)
   jquery-rails
+  jwt-rb
   librato-rails
   mailcatcher
   mixpanel-ruby

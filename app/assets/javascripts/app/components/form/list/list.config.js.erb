@@ -4,14 +4,18 @@
   angular
     .module('walterApp.form.list')
     .config(ListFormConfig)
+    .constant('AccessLevels', {guest: 0, user: 1})
   ;
 
-  ListFormConfig.$inject = ['$stateProvider'];
-  function ListFormConfig ($stateProvider) {
+  ListFormConfig.$inject = ['$stateProvider', 'AccessLevels'];
+  function ListFormConfig ($stateProvider, AccessLevels) {
     $stateProvider
       .state('forms', {
         parent: 'dashboard',
-        url: 'forms'
+        url: '/forms',
+        data: {
+          access: AccessLevels.user
+        }
       })
 
       .state('forms.new', {
@@ -20,6 +24,9 @@
           pageTitle: 'New Form'
         },
         views: {
+          'navbar': {
+            template: '<navbar />'
+          },
           'header@': {
             templateUrl: "<%= asset_path('app/components/form/new/header.html') %>"
           },

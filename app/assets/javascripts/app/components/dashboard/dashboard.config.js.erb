@@ -4,13 +4,22 @@
   angular
     .module('walterApp.dashboard')
     .config(DashboardConfig)
+    .constant('AccessLevels', {guest: 0, user: 1})
   ;
 
-  DashboardConfig.$inject = ['$stateProvider'];
-  function DashboardConfig ($stateProvider) {
+  DashboardConfig.$inject = ['$stateProvider', 'AccessLevels'];
+  function DashboardConfig ($stateProvider, AccessLevels) {
     $stateProvider
       .state('dashboard', {
-        url: '/',
+        abstract: true,
+        templateUrl: "<%= asset_path('app/components/dashboard/dashboard.html') %>",
+        data: {
+          access: AccessLevels.user
+        }
+      })
+
+      .state('dashboard.list', {
+        url: '/dashboard',
         data: {
           pageTitle: 'Dashboard'
         },

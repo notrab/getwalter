@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  include Clearance::User
+  has_secure_password
 
   has_many :forms, dependent: :destroy
 
-  validates :name, presence: true
+  validates :email, :name, presence: true
 
   def first_name
     name.split(' ').first
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super(only: [:name, :email],
+    super(only: [:id, :name, :email],
       methods: [:first_name, :last_name, :gravatar_url])
   end
 end

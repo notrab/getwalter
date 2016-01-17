@@ -4,17 +4,18 @@
   angular
     .module('walterApp.account')
     .config(AccountConfig)
+    .constant('AccessLevels', {guest: 0, user: 1})
   ;
 
-  AccountConfig.$inject = ['$stateProvider'];
-  function AccountConfig ($stateProvider) {
+  AccountConfig.$inject = ['$stateProvider', 'AccessLevels'];
+  function AccountConfig ($stateProvider, AccessLevels) {
     $stateProvider
       .state('account', {
-        // abstract: true,
-        // parent: 'dashboard',
+        parent: 'dashboard',
         url: '/account',
         data: {
-          pageTitle: 'Account Settings'
+          pageTitle: 'Account Settings',
+          access: AccessLevels.user
         },
         views: {
           'navbar': {

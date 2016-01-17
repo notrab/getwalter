@@ -1,9 +1,9 @@
-class Api::FormsController < ApplicationController
+class Api::FormsController < Api::ApiController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
   def index
-    respond_with current_user.forms
+    respond_with @current_user.forms
   end
 
   def show
@@ -11,16 +11,16 @@ class Api::FormsController < ApplicationController
   end
 
   def create
-    @form = current_user.forms.new(safe_params.except(:optional_notification_emails))
+    @form = @current_user.forms.new(safe_params.except(:optional_notification_emails))
     @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',') if safe_params[:optional_notification_emails].present?
 
     if @form.save
-      Adapters::LibratoAdapter.new.increment(current_user, 'user.forms')
-      Adapters::MixpanelAdapter.new.people(current_user.id, {
+      Adapters::LibratoAdapter.new.increment(@current_user, 'user.forms')
+      Adapters::MixpanelAdapter.new.people(@current_user.id, {
         'Created Form' => true
       })
 
-      Adapters::MixpanelAdapter.new.write(current_user.id, 'form.created', {
+      Adapters::MixpanelAdapter.new.write(@current_user.id, 'form.created', {
         'Form ID' => @form.id,
         'Form Name' => @form.name,
         'Forward Query String' => @form.forward_query_string
@@ -42,7 +42,7 @@ class Api::FormsController < ApplicationController
     @form.optional_notification_emails = safe_params[:optional_notification_emails].join(',') if safe_params[:optional_notification_emails].present?
 
     if @form.update_attributes(updated_params)
-      Adapters::MixpanelAdapter.new.people(current_user.id, {
+      Adapters::MixpanelAdapter.new.people(@current_user.id, {
         'Updated Form' => true
       })
 
@@ -61,7 +61,7 @@ class Api::FormsController < ApplicationController
     form_id, form_name = @form.id, @form.name
 
     if @form.destroy
-      Adapters::MixpanelAdapter.new.write(current_user.id, 'form.deleted', {
+      Adapters::MixpanelAdapter.new.write(@current_user.id, 'form.deleted', {
         'Form ID' => form_id,
         'Form Name' => form_name
       })
@@ -86,6 +86,6 @@ class Api::FormsController < ApplicationController
   end
 
   def set_form
-    @form = current_user.forms.find(params[:id])
+    @form = @current_user.forms.find(params[:id])
   end
 end

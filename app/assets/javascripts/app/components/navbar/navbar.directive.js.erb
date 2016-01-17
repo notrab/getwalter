@@ -11,11 +11,15 @@
     return {
       restrict: 'AE',
       templateUrl: "<%= asset_path('app/components/navbar/navbar.html') %>",
-      controller: NavbarController
+      controller: NavbarController,
+      controllerAs: 'navbar',
+      bindToController: true
     }
   }
 
-  function NavbarController () {
+  NavbarController.$inject = ['CurrentUser'];
+  function NavbarController (CurrentUser) {
     var vm = this;
+    vm.user = CurrentUser.user;
   }
 })();

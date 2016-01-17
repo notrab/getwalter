@@ -16,6 +16,7 @@
 
       'walterApp.navbar',
 
+      'walterApp.auth',
       'walterApp.user',
 
       'walterApp.form',
@@ -24,4 +25,5 @@
       'walterApp.form.edit',
       'walterApp.form.new',
     ])
+    .constant('AccessLevels', {guest: 0, user: 1})
   ;

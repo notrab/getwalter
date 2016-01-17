@@ -1,9 +1,0 @@
-<h1>Edit Account</h1>
-
-<%= form_for current_user, url: edit_my_account_path do |f| %>
-  <%= f.text_field :name, placeholder: 'Name' %><br><br>
-  <%= f.text_field :email, placeholder: 'Email' %><br><br>
-  <%= f.text_field :password, placeholder: 'Password' %><br><br>
-
-  <%= f.submit 'Update' %>
-<% end %>

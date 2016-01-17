@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="walterApp" ng-controller="ShellController">
 <head>
-  <title>Walter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title ng-bind-template="{{pageTitle}} | Walter">Loading...</title>
+  <meta charset="utf-8" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <% if Rails.env.production? %>
+    <script src="https://use.typekit.net/ujr4qeu.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <% end %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-  <%= render partial: 'layouts/header' %>
-
-  <main>
-    <div class="wrapper">
-      <div id="flash">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-      </div>
-
-      <%= yield %>
-    </div>
-
-  </main>
-
-  <script src="https://use.typekit.net/ujr4qeu.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+<body scroll>
+  <div ui-view></div>
 </body>
 </html>

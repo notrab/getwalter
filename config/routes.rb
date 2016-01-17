@@ -4,38 +4,38 @@ Rails.application.routes.draw do
   get '/thanks' => 'submissions#thanks', as: :thanks
   get '/oops' => 'submissions#oops', as: :oops
 
-  constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
+  # constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'
-  end
+  # end
 
-  constraints Clearance::Constraints::SignedIn.new do
-    root to: 'application#angular', as: :signed_in_root
+    root to: 'application#angular'
 
     namespace :api, defaults: { format: :json } do
       resources :forms, except: [:new, :edit]
-      get '/me' => 'users#show'
     end
-  end
 
-  constraints Clearance::Constraints::SignedOut.new do
-    root to: 'marketing#index'
+    match '/auth/register',     to: 'auth#register',     via: 'post'
+    match '/auth/authenticate', to: 'auth#authenticate', via: 'post'
+    match '/auth/token_status', to: 'auth#token_status', via: 'get'
 
-    get '/sign_up' => 'users#new', as: 'sign_up_app'
-    get '/sign_in' => 'sessions#new', as: 'sign_in_app'
-  end
+    # root to: 'marketing#index'
 
-  resources :users, controller: 'clearance/users', only: [] do
-    resource :password,
-      controller: 'clearance/passwords',
-      only: [:create, :update]
-  end
+    # get '/sign_up' => 'users#new', as: 'sign_up_app'
+    # get '/sign_in' => 'sessions#new', as: 'sign_in_app'
+  # end
 
-  resources :users, controller: "users" do
-    resource(
-      :password,
-      controller: "passwords",
-      only: [:create, :update]
-    )
-  end
+  # resources :users, controller: 'clearance/users', only: [] do
+  #   resource :password,
+  #     controller: 'clearance/passwords',
+  #     only: [:create, :update]
+  # end
+  #
+  # resources :users, controller: "users" do
+  #   resource(
+  #     :password,
+  #     controller: "passwords",
+  #     only: [:create, :update]
+  #   )
+  # end
 end
