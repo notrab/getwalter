@@ -1,11 +1,11 @@
 <ul class="form-list">
   <li ng-repeat="form in list.forms">
-    <div class="overview">
+    <div class="overview" ng-class="{'is_stale': !form.has_submissions}">
       <span class="name"><a ui-sref="forms.show({id: form.id })">{{ form.name }}</a></span>
       <span ng-show="form.has_submissions" class="last-submission">Last submission <span am-time-ago="form.last_submission"></span></span>
       <span ng-hide="form.has_submissions" class="last-submission">Awaiting first submission</span>
     </div>
-    <div class="stats">
+    <div class="stats" ng-show="form.has_submissions">
       <a ui-sref="forms.show({id: form.id})">
         <strong count-to="0" value="0" duration="2"
           filter="number">0</strong><span>New</span>

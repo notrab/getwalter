@@ -23,6 +23,10 @@ ul.form-list {
         font-weight: 600;
         font-size: 0.8em;
       }
+
+      &.is_stale {
+        @include span-columns(9);
+      }
     }
 
     .stats,
