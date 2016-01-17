@@ -4,4 +4,6 @@ class Submission < ActiveRecord::Base
   validates :email, presence: true
 
   serialize :data, JSON
+
+  default_scope { order(created_at: :desc) }
 end

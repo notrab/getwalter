@@ -10,6 +10,11 @@ header {
   line-height: 100px;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 5;
+  @include transition(all 0.25s ease-in);
 
   h1 {
     font-size: 18px;
@@ -23,8 +28,16 @@ header {
     height: 45px;
     line-height: 45px;
     padding: 0 15px;
-    float: right;
     margin-top: 25px;
+    position: inherit;
+    right: 2em;
+  }
+
+  &.shadow {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
   }
 }
 
@@ -32,6 +45,8 @@ main.main-content {
   background-color: #fff;
   width: calc(100% - 300px);
   margin-left: 300px;
+  padding-top: 100px;
+  position: relative;
 }
 
 .inner-content {

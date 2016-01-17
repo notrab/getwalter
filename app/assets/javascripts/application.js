@@ -22,6 +22,8 @@
 //= require app/components/shell/shell.config
 //= require app/components/shell/shell.controller
 
+//= require app/components/shell/scroll.directive
+
 //= require app/components/dashboard/dashboard.module
 //= require app/components/dashboard/dashboard.config
 //= require app/components/dashboard/dashboard.controller

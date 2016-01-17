@@ -12,10 +12,10 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body scroll>
   <nav class="side-nav" ui-view="navbar"></nav>
   <main class="main-content">
-    <header ui-view="header"></header>
+    <header ui-view="header" ng-class="{'shadow': scrolledBeyondHeader}"></header>
     <div ui-view="content"></div>
   </main>
 </body>

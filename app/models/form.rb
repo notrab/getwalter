@@ -8,6 +8,8 @@ class Form < ActiveRecord::Base
 
   before_validation :validate_optional_emails
 
+  default_scope { order(created_at: :desc) }
+
   def last_submission
     submissions.last.try(:created_at).try(:to_time).try(:iso8601)
   end
