@@ -4,11 +4,11 @@
       'ngAnimate',
       'ngResource',
       'countTo',
+      'angularMoment',
+      'angular-loading-bar',
 
       'ui.router',
       'templates',
-
-      'angular-loading-bar',
 
       'walterApp.shell',
       'walterApp.dashboard',

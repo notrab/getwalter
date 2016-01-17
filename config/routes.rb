@@ -14,9 +14,7 @@ Rails.application.routes.draw do
 
     namespace :api, defaults: { format: :json } do
       resources :forms, except: [:new, :edit]
-      resources :users, except: [:new, :edit] do
-        get :me
-      end
+      get '/me' => 'users#show'
     end
   end
 

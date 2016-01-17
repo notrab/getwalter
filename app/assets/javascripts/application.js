@@ -8,6 +8,8 @@
 //= require ui-router
 //= require angular-loading-bar
 //= require angular-filter-count-to.min
+//= require moment
+//= require angular-moment
 
 //= require app/app.module
 

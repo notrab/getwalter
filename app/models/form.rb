@@ -8,6 +8,14 @@ class Form < ActiveRecord::Base
 
   before_validation :validate_optional_emails
 
+  def last_submission
+    submissions.last.try(:created_at).try(:to_time).try(:iso8601)
+  end
+
+  def has_submissions
+    submissions.any?
+  end
+
   def recipients
     recipients = [user.email]
     recipients << optional_notification_emails
@@ -15,7 +23,10 @@ class Form < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super(options.merge(include: :submissions, exclude: :optional_notification_emails, methods: [:recipients]))
+    super(options.merge(include: :submissions,
+      exclude: :optional_notification_emails,
+      methods: [:recipients, :has_submissions, :last_submission]
+    ))
   end
 
   private

@@ -1,9 +1,9 @@
 <ul class="form-list">
   <li ng-repeat="form in list.forms">
     <div class="overview">
-      <span class="name"><a ui-sref="forms.show({id: form.id })">{{ form.name
-          }}</a></span>
-      <span class="last-submission">Last submission 1 hour ago</span>
+      <span class="name"><a ui-sref="forms.show({id: form.id })">{{ form.name }}</a></span>
+      <span ng-show="form.has_submissions" class="last-submission">Last submission <span am-time-ago="form.last_submission"></span></span>
+      <span ng-hide="form.has_submissions" class="last-submission">Awaiting first submission</span>
     </div>
     <div class="stats">
       <a ui-sref="forms.show({id: form.id})">
@@ -29,4 +29,3 @@
     </div>
   </li>
 </ul>
-

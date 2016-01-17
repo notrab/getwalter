@@ -51,4 +51,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-loading-bar'
   gem 'rails-assets-angular-filter-count-to'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-angular-moment'
 end

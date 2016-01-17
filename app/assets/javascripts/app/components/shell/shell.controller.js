@@ -16,7 +16,7 @@
       }
     });
 
-    $http.get('/api/users/me', {
+    $http.get('/api/me', {
       ignoreLoadingBar: true
     }).then(function(user) {
       $scope.currentUser = user.data;

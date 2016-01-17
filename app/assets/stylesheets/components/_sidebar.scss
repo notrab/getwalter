@@ -25,7 +25,7 @@ nav.side-nav {
         color: rgba(255,255,255,0.5);
         font-weight: 700;
 
-        &::before {
+        span {
           position: absolute;
           top: 1.3em;
           left: 1.5em;
@@ -33,9 +33,12 @@ nav.side-nav {
           content: '';
           width: 24px;
           height: 24px;
-          @include background-image(asset-url('list.svg'));
           opacity: 0.5;
+          background-size: 24px 24px;
+          @include background-image(asset-url('list.svg'));
           @include transition(all 0.15s ease-in);
+          @include border-top-radius(0.3rem);
+          @include border-bottom-radius(0.3rem);
         }
 
         &.active,
@@ -43,7 +46,7 @@ nav.side-nav {
           background-color: rgba(255, 255, 255, 0.15);
           color: #FFFFFF;
 
-          &::before {
+          span {
             opacity: 1;
           }
         }
