@@ -1,4 +1,4 @@
-class Api::FormsController < Api::ApiController
+class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
   respond_to :json
 

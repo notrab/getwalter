@@ -1,4 +1,4 @@
-class Api::SubmissionsController < Api::ApiController
+class SubmissionsController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate
   before_action :find_form, only: :create
 

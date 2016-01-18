@@ -2,15 +2,16 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root to: 'application#welcome'
+  constraints defaults: { format: :json } do
+    root to: 'application#welcome'
 
-  post '/auth/register' => 'api/auth#register'
-  post '/auth/authenticate' => 'api/auth#authenticate'
-  get '/auth/token_status' => 'api/auth#token_status'
+    post '/f/:token' => 'submissions#create'
 
-  namespace :api, defaults: { format: :json }, path: '/' do
+    resources :sessions, only: [:create]
+    resources :users, only: [:create] do
+      get :token_status, on: :collection
+    end
+
     resources :forms, except: [:new, :edit]
-
-    post 'f/:token' => 'submissions#create'
   end
 end
