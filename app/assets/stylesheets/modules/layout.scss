@@ -14,7 +14,10 @@ header {
   top: 0;
   background-color: rgb(255, 255, 255);
   z-index: 5;
-  @include transition(all 0.25s ease-in);
+
+  &.shadow {
+    @include transition(all 0.25s ease-in);
+  }
 
   h1 {
     font-size: 18px;

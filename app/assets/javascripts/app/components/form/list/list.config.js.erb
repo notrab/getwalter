@@ -24,14 +24,15 @@
           pageTitle: 'New Form'
         },
         views: {
-          'navbar': {
+          'navbar@dashboard': {
             template: '<navbar />'
           },
-          'header@': {
+
+          'header@dashboard': {
             templateUrl: "<%= asset_path('app/components/form/new/header.html') %>"
           },
 
-          'content@': {
+          'content@dashboard': {
             templateUrl: "<%= asset_path('app/components/form/new/new.html') %>",
             controller: 'NewFormController',
             controllerAs: 'new'
@@ -51,11 +52,15 @@
           }]
         },
         views: {
-          'header@': {
+          'navbar@dashboard': {
+            template: '<navbar />'
+          },
+
+          'header@dashboard': {
             templateUrl: "<%= asset_path('app/components/form/show/header.html') %>"
           },
 
-          'content@': {
+          'content@dashboard': {
             templateUrl: "<%= asset_path('app/components/form/show/show.html') %>",
             controller: 'ShowFormController',
             controllerAs: 'form'
@@ -75,7 +80,15 @@
           }]
         },
         views: {
-          'content@': {
+          'navbar@dashboard': {
+            template: '<navbar />'
+          },
+
+          'header@dashboard': {
+            templateUrl: "<%= asset_path('app/components/form/show/header.html') %>"
+          },
+
+          'content@dashboard': {
             templateUrl: "<%= asset_path('app/components/form/edit/form.edit.html') %>",
             controller: 'EditFormController',
             controllerAs: 'edit'
