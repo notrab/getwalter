@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate, only: [:create]
+  skip_before_action :authenticate
 
   def create
-    user = User.find_by(email: safe_params.delete(:email).downcase)
+    user = User.find_by(email: params[:email].downcase)
 
-    if user && user.authenticate(safe_params.delete(:password))
+    if user && user.authenticate(params[:password])
       token = AuthToken.issue_token({user_id: user.id})
       render json: {user: user, token: token}
     else

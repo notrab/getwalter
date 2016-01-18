@@ -3,11 +3,11 @@ class FormsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with @current_user.forms
+    render json: @current_user.forms
   end
 
   def show
-    respond_with @form
+    render json: @form
   end
 
   def create

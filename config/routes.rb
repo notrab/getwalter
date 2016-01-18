@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     post '/f/:token' => 'submissions#create'
 
     resources :sessions, only: [:create]
-    resources :users, only: [:create] do
-      get :token_status, on: :collection
-    end
+
+    resources :users, only: [:create]
+    get '/users/token_status', to: 'users#token_status'
 
     resources :forms, except: [:new, :edit]
   end

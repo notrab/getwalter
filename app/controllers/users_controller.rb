@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate, only: [:create, :authenticate]
+  skip_before_action :authenticate
 
   def create
     user = User.new(safe_params)
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def token_status
-    if AuthToken.valid?(safe_params.delete(:token))
+    if AuthToken.valid?(params[:token])
       render nothing: true, status: :ok
     else
       render nothing: true, status: :unauthorized
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def safe_params
-    params.permit(:name, :email, :password, :token)
+    params.permit(:name, :email, :password)
   end
 end
