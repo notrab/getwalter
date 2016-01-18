@@ -21,8 +21,8 @@
       }
     });
 
-    $rootScope.auth = Auth;
-    $rootScope.currentUser = CurrentUser.user();
+    $scope.auth = Auth;
+    $scope.currentUser = CurrentUser;
 
     $rootScope.logout = function() {
       Auth.logout();

@@ -1,3 +1,9 @@
 <h1>Welcome home</h1>
 
-<p><a ui-sref="guest.register">Register</a> or <a ui-sref="guest.login">Login</a>.</p>
+<div ng-hide="isLoggedIn()">
+  <p><a ui-sref="guest.register">Register</a> or <a ui-sref="guest.login">Login</a>.</p>
+</div>
+
+<div ng-show="isLoggedIn()">
+  <p>Welcome {{ currentUser.name }}. <a ui-sref="dashboard.list">Go to Dashboard</a></p>
+</div>

@@ -13,13 +13,15 @@
       templateUrl: "<%= asset_path('app/components/navbar/navbar.html') %>",
       controller: NavbarController,
       controllerAs: 'navbar',
-      bindToController: true
+      bindToController: true,
+      scope: {
+        'gravatar_url': '='
+      }
     }
   }
 
   NavbarController.$inject = ['CurrentUser'];
   function NavbarController (CurrentUser) {
-    var vm = this;
-    vm.user = CurrentUser.user;
+    this.gravatar_url = CurrentUser.gravatar_url;
   }
 })();
