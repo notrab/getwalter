@@ -1,9 +1,7 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate, only: :create
+  skip_before_action :authenticate, only: [:create]
 
   def create
-    return render json: {error: 'Invalid email supplied.'} if safe_params.empty?
-
     user = User.find_by(email: safe_params.delete(:email).downcase)
 
     if user && user.authenticate(safe_params.delete(:password))
