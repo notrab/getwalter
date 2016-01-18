@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, :authenticate
+  skip_before_action :verify_authenticity_token, if: :json_request?
+  skip_before_action :authenticate
   before_action :find_form, only: :create
 
   def create

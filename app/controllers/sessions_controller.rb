@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  require 'auth_token'
-
   skip_before_action :authenticate
 
   def create
-    user = User.find_by(email: params[:email].downcase)
+    return render json: {error: 'Invalid email supplied.'} if safe_params.empty?
 
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: safe_params.delete(:email).downcase)
+
+    if user && user.authenticate(safe_params.delete(:password))
       token = AuthToken.issue_token({user_id: user.id})
       render json: {user: user, token: token}
     else

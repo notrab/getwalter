@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  require 'auth_token'
-
   skip_before_action :authenticate
 
   def create
@@ -15,12 +13,10 @@ class UsersController < ApplicationController
   end
 
   def token_status
-    token = params[:token]
-
-    if AuthToken.valid? token
-      head 200
+    if AuthToken.valid?(params[:token])
+      render nothing: true, status: :ok
     else
-      head 401
+      render nothing: true, status: :unauthorized
     end
   end
 
