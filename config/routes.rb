@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  constraints defaults: { format: :json } do
+  constraints defaults: {format: :json} do
     root to: 'application#welcome'
 
     post '/f/:token' => 'submissions#create'
