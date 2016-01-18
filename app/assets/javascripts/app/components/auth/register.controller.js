@@ -16,5 +16,5 @@
         $state.go('dashboard.list');
       });
     };
-  });
+  };
 })();
