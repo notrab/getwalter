@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
   root to: 'application#welcome'
 
+  post '/auth/register' => 'api/auth#register'
+  post '/auth/authenticate' => 'api/auth#authenticate'
+  get '/auth/token_status' => 'api/auth#token_status'
+
   namespace :api, defaults: { format: :json }, path: '/' do
     resources :forms, except: [:new, :edit]
 
     post 'f/:token' => 'submissions#create'
-
-    match 'auth/register',     to: 'auth#register',     via: 'post'
-    match 'auth/authenticate', to: 'auth#authenticate', via: 'post'
-    match 'auth/token_status', to: 'auth#token_status', via: 'get'
   end
 end

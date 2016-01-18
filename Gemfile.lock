@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.5)
       actionpack (= 4.2.5)
@@ -38,26 +37,13 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     aggregate (0.2.2)
-    angular-rails4-templates (0.4.1)
-      railties (>= 4)
-      sprockets (~> 3)
     arel (6.0.3)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bourbon (4.2.6)
-      sass (~> 3.4)
-      thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.1)
     coderay (1.1.0)
-    coffee-rails (4.1.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.1.x)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     connection_pool (2.2.0)
     daemons (1.2.3)
@@ -67,7 +53,6 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.8)
-    execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
@@ -100,10 +85,6 @@ GEM
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
-    jquery-rails (4.0.5)
-      rails-dom-testing (~> 1.0)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt-rb (0.0.2)
       hashie
@@ -142,9 +123,6 @@ GEM
     mixpanel-ruby (2.2.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
-    neat (1.7.2)
-      bourbon (>= 4.0)
-      sass (>= 3.3)
     nenv (0.2.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
@@ -156,8 +134,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    quiet_assets (1.1.0)
-      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-livereload (0.3.16)
@@ -177,20 +153,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.5)
       sprockets-rails
-    rails-assets-angular (1.4.8)
-    rails-assets-angular-animate (1.4.8)
-      rails-assets-angular (= 1.4.8)
-    rails-assets-angular-filter-count-to (0.0.1)
-    rails-assets-angular-loading-bar (0.8.0)
-      rails-assets-angular (>= 1.2.9, < 2)
-    rails-assets-angular-moment (0.10.3)
-      rails-assets-angular (>= 1.2.0, < 1.5.0)
-      rails-assets-moment (>= 2.8.0, < 2.11.0)
-    rails-assets-angular-resource (1.4.8)
-      rails-assets-angular (= 1.4.8)
-    rails-assets-moment (2.10.6)
-    rails-assets-ui-router (0.2.15)
-      rails-assets-angular (>= 1.0.8)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -199,11 +161,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.4)
-    rails_stdout_logging (0.0.4)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -217,13 +174,6 @@ GEM
     redis (3.2.2)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
-    sass (3.4.20)
-    sass-rails (5.0.4)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (>= 1.1, < 3)
     shellany (0.0.1)
     sidekiq (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -255,9 +205,6 @@ GEM
     tilt (2.0.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
     unicorn (5.0.1)
       kgio (~> 2.6)
       rack
@@ -272,42 +219,25 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-rails4-templates
   bcrypt
-  bourbon
   byebug
-  coffee-rails (~> 4.1.0)
   foreman
   guard
   guard-livereload (~> 2.4)
   has_secure_token
   jbuilder (~> 2.0)
-  jquery-rails
   jwt-rb
   librato-rails
   mailcatcher
   mixpanel-ruby
-  neat
   pg (~> 0.15)
-  quiet_assets
   rack-cors
   rack-livereload
   rails (= 4.2.5)
-  rails-assets-angular!
-  rails-assets-angular-animate!
-  rails-assets-angular-filter-count-to!
-  rails-assets-angular-loading-bar!
-  rails-assets-angular-moment!
-  rails-assets-angular-resource!
-  rails-assets-moment!
-  rails-assets-ui-router!
-  rails_12factor
   responders (~> 2.0)
-  sass-rails (~> 5.0)
   sidekiq
   sinatra
   spring
-  uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
 
