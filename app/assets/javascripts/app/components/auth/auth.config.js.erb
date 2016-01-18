@@ -1,9 +1,13 @@
 (function() {
   'use strict';
 
-  angular.module('walterApp')
-  .config(function($stateProvider, $urlRouterProvider, AccessLevels) {
+  angular
+    .module('walterApp.auth')
+    .config(AuthConfig)
+    .constant('AccessLevels', {guest: 0, user: 1})
+  ;
 
+  function AuthConfig ($stateProvider, $urlRouterProvider, AccessLevels) {
     $stateProvider
       .state('guest', {
         abstract: true,
@@ -21,13 +25,15 @@
       .state('guest.login', {
         url: '/login',
         templateUrl: "<%= asset_path('app/components/auth/login.html') %>",
-        controller: 'LoginController'
+        controller: 'LoginController',
+        controllerAs: 'login'
       })
 
       .state('guest.register', {
         url: '/register',
         templateUrl: "<%= asset_path('app/components/auth/register.html') %>",
-        controller: 'RegisterController'
+        controller: 'RegisterController',
+        controllerAs: 'register'
       })
     ;
   });
