@@ -24,13 +24,6 @@ class Form < ActiveRecord::Base
     recipients
   end
 
-  def as_json(options={})
-    super(options.merge(include: :submissions,
-      exclude: :optional_notification_emails,
-      methods: [:recipients, :has_submissions, :last_submission]
-    ))
-  end
-
   private
 
   def validate_optional_emails
