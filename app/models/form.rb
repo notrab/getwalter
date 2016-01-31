@@ -19,7 +19,7 @@ class Form < ActiveRecord::Base
   end
 
   def recipients
-    recipients = [user.email]
+    recipients = [user.email] if self.cc_user_in_recipients?
     recipients << optional_notification_emails
     recipients
   end

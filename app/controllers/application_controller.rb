@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   require 'auth_token'
 
   protect_from_forgery with: :null_session
-  before_action :authenticate!, except: [:welcome]
+  before_action :authenticate!
 
   def welcome
     render json: {
-      message: "Hi. I'm Walter. Your personal form assistant."
+      message: "Hi #{@current_user.name}. I'm Walter. Your personal form assistant."
     }
   end
 
